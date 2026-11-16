@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #F5F2EB;
+    color: #141413;
+  }
+
+  ::selection {
+    background-color: #8C1813;
+    color: #F5F2EB;
+  }
+}
+
+/* Archival luxury hairline rules and double-bezel styling */
+.rule-hairline {
+  border-color: #D6D1C4;
+}
+
+.rule-hairline-dark {
+  border-color: #2A2926;
+}
+
+.rule-hairline-navy {
+  border-color: rgba(245, 242, 235, 0.15);
+}
+
+/* Archival Stamp Styling */
+.inspection-stamp {
+  position: relative;
+  border: 2px dashed #8C1813;
+  color: #8C1813;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transform: rotate(-3deg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.inspection-stamp-navy {
+  position: relative;
+  border: 2px dashed #B4925A;
+  color: #B4925A;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transform: rotate(2deg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+/* Dignified button transition with slow luxurious fill */
+.btn-dignified {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 1;
+}
+
+.btn-dignified::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: currentColor;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.btn-dignified:hover::before {
+  transform: scaleY(1);
+}
+
+/* Double-Bezel Hardware Containers */
+.bezel-container {
+  background: #FAF8F4;
+  border: 1px solid #D6D1C4;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(20, 20, 19, 0.04), 0 20px 40px -15px rgba(20, 20, 19, 0.06);
+}
+
+.bezel-inner {
+  border: 1px solid rgba(214, 209, 196, 0.6);
+  border-radius: 8px;
+  background: #FFFFFF;
+}
+
+.bezel-navy {
+  background: #0D2845;
+  border: 1px solid rgba(245, 242, 235, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 24px 48px -12px rgba(0, 0, 0, 0.4);
+}
+
+.bezel-navy-inner {
+  border: 1px solid rgba(245, 242, 235, 0.1);
+  border-radius: 8px;
+  background: #12355B;
+}
