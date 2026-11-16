@@ -7,6 +7,14 @@
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     background-color: #F5F2EB;
     color: #141413;
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+
+  body {
+    overflow-x: clip;
+    width: 100%;
+    min-height: 100vh;
   }
 
   ::selection {
@@ -115,4 +123,29 @@
   border: 1px solid rgba(245, 242, 235, 0.1);
   border-radius: 8px;
   background: #12355B;
+}
+
+/* Micro Animations with Architectural Restraint */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.28s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+/* Mobile Hardware Notch & Virtual Keyboard Safe-Area Utilities */
+.safe-pb {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
+}
+
+.safe-pt {
+  padding-top: max(1rem, env(safe-area-inset-top, 1rem));
 }

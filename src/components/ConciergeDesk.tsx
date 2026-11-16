@@ -44,14 +44,14 @@ export const ConciergeDesk: React.FC = () => {
   };
 
   return (
-    <section id="concierge-desk" className="py-20 border-b border-rule bg-parchment">
+    <section id="concierge-desk" className="py-12 sm:py-20 border-b border-rule bg-parchment">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Section Header */}
         <div className="space-y-4">
           <div className="flex items-center gap-2 text-xs font-mono text-crimson font-bold">
             <span>CHAPTER IV</span>
             <span>—</span>
-            <span className="tracking-archival uppercase text-ink">THE CONCIERGE BAY RESERVATION DESK</span>
+            <span className="tracking-ledger sm:tracking-archival uppercase text-ink">THE CONCIERGE BAY RESERVATION DESK</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-baseline">
@@ -118,7 +118,7 @@ export const ConciergeDesk: React.FC = () => {
 
               {/* Step 1: Owner Telemetry */}
               <div className="space-y-4">
-                <div className="text-xs font-mono uppercase tracking-archival text-crimson font-bold">
+                <div className="text-xs font-mono uppercase tracking-wider sm:tracking-archival text-crimson font-bold">
                   01. Client & Contact Identification
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -132,7 +132,7 @@ export const ConciergeDesk: React.FC = () => {
                       placeholder="e.g. Adv. R. S. Shukla"
                       value={formData.ownerName}
                       onChange={(e) => setFormData({ ...formData, ownerName: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-sans"
+                      className="w-full px-3.5 py-2.5 min-h-[44px] text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-sans"
                     />
                   </div>
                   <div>
@@ -145,7 +145,7 @@ export const ConciergeDesk: React.FC = () => {
                       placeholder="+91 98390 XXXXX"
                       value={formData.contactNumber}
                       onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-mono"
+                      className="w-full px-3.5 py-2.5 min-h-[44px] text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-mono"
                     />
                   </div>
                   <div>
@@ -157,7 +157,7 @@ export const ConciergeDesk: React.FC = () => {
                       placeholder="owner@domain.com"
                       value={formData.emailAddress}
                       onChange={(e) => setFormData({ ...formData, emailAddress: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-sans"
+                      className="w-full px-3.5 py-2.5 min-h-[44px] text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-sans"
                     />
                   </div>
                 </div>
@@ -165,7 +165,7 @@ export const ConciergeDesk: React.FC = () => {
 
               {/* Step 2: Vehicle Telemetry */}
               <div className="space-y-4 pt-4 border-t border-rule/80">
-                <div className="text-xs font-mono uppercase tracking-archival text-crimson font-bold">
+                <div className="text-xs font-mono uppercase tracking-wider sm:tracking-archival text-crimson font-bold">
                   02. Vehicle Specification & Category
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -179,7 +179,7 @@ export const ConciergeDesk: React.FC = () => {
                       placeholder="e.g. Mercedes-Benz / Hyundai"
                       value={formData.vehicleMake}
                       onChange={(e) => setFormData({ ...formData, vehicleMake: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-sans"
+                      className="w-full px-3.5 py-2.5 min-h-[44px] text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-sans"
                     />
                   </div>
                   <div>
@@ -192,7 +192,7 @@ export const ConciergeDesk: React.FC = () => {
                       placeholder="e.g. E-Class E220d / Creta 1.5"
                       value={formData.vehicleModel}
                       onChange={(e) => setFormData({ ...formData, vehicleModel: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-sans"
+                      className="w-full px-3.5 py-2.5 min-h-[44px] text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-sans"
                     />
                   </div>
                   <div>
@@ -205,7 +205,7 @@ export const ConciergeDesk: React.FC = () => {
                       max="2026"
                       value={formData.manufactureYear}
                       onChange={(e) => setFormData({ ...formData, manufactureYear: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-mono"
+                      className="w-full px-3.5 py-2.5 min-h-[44px] text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-mono"
                     />
                   </div>
                 </div>
@@ -218,7 +218,7 @@ export const ConciergeDesk: React.FC = () => {
                     <select
                       value={formData.serviceCategory}
                       onChange={(e) => setFormData({ ...formData, serviceCategory: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-sans"
+                      className="w-full px-3.5 py-2.5 min-h-[44px] text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-sans"
                     >
                       <option value="European & Luxury Marque Stewardship">European & Luxury Marque Stewardship</option>
                       <option value="Engine Rebuilding & ECM Diagnostics">Engine Rebuilding & ECM Diagnostics</option>
@@ -237,7 +237,7 @@ export const ConciergeDesk: React.FC = () => {
                       type="date"
                       value={formData.preferredDate}
                       onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-mono"
+                      className="w-full px-3.5 py-2.5 min-h-[44px] text-sm bg-parchment border border-rule rounded focus:outline-none focus:border-crimson font-mono"
                     />
                   </div>
                 </div>
@@ -245,7 +245,7 @@ export const ConciergeDesk: React.FC = () => {
 
               {/* Step 3: Symptoms & Diagnostic Notes */}
               <div className="space-y-4 pt-4 border-t border-rule/80">
-                <div className="text-xs font-mono uppercase tracking-archival text-crimson font-bold">
+                <div className="text-xs font-mono uppercase tracking-wider sm:tracking-archival text-crimson font-bold">
                   03. Diagnostic Symptoms & Mechanical Observations
                 </div>
                 <div>
@@ -258,15 +258,15 @@ export const ConciergeDesk: React.FC = () => {
                   />
                 </div>
 
-                <div className="flex items-center gap-3 pt-1">
+                <div className="flex items-start gap-3 pt-1">
                   <input
                     type="checkbox"
                     id="pickupValet"
                     checked={formData.pickupRequired}
                     onChange={(e) => setFormData({ ...formData, pickupRequired: e.target.checked })}
-                    className="w-4 h-4 text-crimson rounded border-rule focus:ring-crimson"
+                    className="w-5 h-5 text-crimson rounded border-rule focus:ring-crimson mt-0.5 shrink-0 cursor-pointer"
                   />
-                  <label htmlFor="pickupValet" className="text-xs font-mono text-ink">
+                  <label htmlFor="pickupValet" className="text-xs font-mono text-ink cursor-pointer leading-relaxed select-none">
                     Request Doorstep Insured Valet Pickup (Civil Lines, George Town, Tagore Town, Katra, Cantonment)
                   </label>
                 </div>
@@ -275,15 +275,15 @@ export const ConciergeDesk: React.FC = () => {
               {/* Submission CTA */}
               <div className="pt-4 border-t border-rule flex flex-wrap items-center justify-between gap-4">
                 <div className="text-xs font-mono text-ink-faint flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-brass" />
+                  <ShieldCheck className="w-4 h-4 text-brass shrink-0" />
                   <span>Statutory GST Invoice & 100% Genuine OEM Warranty</span>
                 </div>
 
                 <button
                   type="submit"
-                  className="px-6 py-3 text-xs font-mono font-semibold uppercase tracking-wider text-parchment bg-crimson hover:bg-crimson-dark border border-crimson-light/40 rounded shadow-md transition-all flex items-center gap-2 btn-dignified"
+                  className="w-full sm:w-auto px-6 py-3 min-h-[44px] text-xs font-mono font-semibold uppercase tracking-wider text-parchment bg-crimson hover:bg-crimson-dark border border-crimson-light/40 rounded shadow-md transition-all flex items-center justify-center gap-2 btn-dignified"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4 shrink-0" />
                   <span>Transmit Concierge Booking</span>
                 </button>
               </div>
@@ -292,9 +292,9 @@ export const ConciergeDesk: React.FC = () => {
 
           {/* Right Column: Direct Hotlines & Workshop Location Info */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="bezel-container p-6 space-y-4 bg-parchment-light">
+            <div className="bezel-container p-5 sm:p-6 space-y-4 bg-parchment-light">
               <div className="pb-3 border-b border-rule">
-                <span className="text-xs font-mono uppercase tracking-archival text-brass-dark font-semibold">
+                <span className="text-xs font-mono uppercase tracking-ledger sm:tracking-archival text-brass-dark font-semibold">
                   DIRECT CONCIERGE HOTLINE
                 </span>
                 <h4 className="font-serif text-xl text-ink font-normal mt-1">
@@ -310,10 +310,10 @@ export const ConciergeDesk: React.FC = () => {
               <div className="space-y-3 pt-2 font-mono text-xs">
                 <a
                   href={`tel:+${WORKSHOP_PHONE}`}
-                  className="p-3 bg-parchment rounded border border-rule flex items-center justify-between hover:border-crimson transition-colors"
+                  className="p-3.5 min-h-[44px] bg-parchment rounded border border-rule flex items-center justify-between hover:border-crimson transition-colors"
                 >
                   <span className="flex items-center gap-2 text-ink">
-                    <Phone className="w-4 h-4 text-crimson" />
+                    <Phone className="w-4 h-4 text-crimson shrink-0" />
                     <span>+91 87965 76868</span>
                   </span>
                   <span className="text-crimson font-semibold">CALL NOW</span>
@@ -323,10 +323,10 @@ export const ConciergeDesk: React.FC = () => {
                   href={`https://wa.me/${WORKSHOP_PHONE}?text=${encodeURIComponent('Hello Hindustan Garage, I require urgent workshop assistance.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-parchment rounded border border-rule flex items-center justify-between hover:border-emerald-600 transition-colors"
+                  className="p-3.5 min-h-[44px] bg-parchment rounded border border-rule flex items-center justify-between hover:border-emerald-600 transition-colors"
                 >
                   <span className="flex items-center gap-2 text-ink">
-                    <Send className="w-4 h-4 text-emerald-600" />
+                    <Send className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>WhatsApp Concierge</span>
                   </span>
                   <span className="text-emerald-700 font-semibold">CHAT LIVE</span>
@@ -334,7 +334,7 @@ export const ConciergeDesk: React.FC = () => {
               </div>
             </div>
 
-            <div className="bezel-container p-6 space-y-3 bg-parchment-light text-xs font-mono text-ink-muted">
+            <div className="bezel-container p-5 sm:p-6 space-y-3 bg-parchment-light text-xs font-mono text-ink-muted">
               <div className="font-bold text-ink uppercase pb-2 border-b border-rule">
                 LOCATION & VISITATION PROTOCOL
               </div>
@@ -357,13 +357,18 @@ export const ConciergeDesk: React.FC = () => {
 
       {/* Confirmation Modal */}
       {showConfirmationModal && submittedPayload && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm">
-          <div className="bezel-container max-w-lg w-full p-6 sm:p-8 space-y-6 bg-parchment-light shadow-2xl animate-fadeIn">
-            <div className="flex items-center justify-between pb-4 border-b border-rule">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-6 h-6 text-emerald-600" />
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="concierge-modal-title"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-start sm:justify-center p-3 sm:p-4 bg-ink/70 backdrop-blur-sm overflow-y-auto safe-pb safe-pt"
+        >
+          <div className="bezel-container max-w-lg w-full p-5 sm:p-8 space-y-5 bg-parchment-light shadow-2xl animate-fadeIn max-h-[calc(100dvh-2rem)] overflow-y-auto my-auto">
+            <div className="flex items-start justify-between pb-4 border-b border-rule gap-3">
+              <div className="flex items-center gap-2.5">
+                <CheckCircle className="w-6 h-6 text-emerald-600 shrink-0" />
                 <div>
-                  <h3 className="font-serif text-xl font-medium text-ink">
+                  <h3 id="concierge-modal-title" className="font-serif text-xl font-medium text-ink">
                     Bay Allocation Initiated
                   </h3>
                   <div className="text-[10px] font-mono text-ink-faint uppercase">
@@ -373,31 +378,32 @@ export const ConciergeDesk: React.FC = () => {
               </div>
               <button
                 onClick={() => setShowConfirmationModal(false)}
-                className="text-ink-muted hover:text-ink text-sm font-mono font-bold"
+                className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-ink-muted hover:text-ink text-sm font-mono font-bold rounded hover:bg-parchment transition-colors"
+                aria-label="Close Confirmation Modal"
               >
                 ✕
               </button>
             </div>
 
             <div className="space-y-3 text-xs font-mono text-ink-muted">
-              <div className="p-3 bg-parchment rounded border border-rule space-y-1">
-                <div className="flex justify-between">
+              <div className="p-3 bg-parchment rounded border border-rule space-y-1.5">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5">
                   <span className="text-ink-faint">Client:</span>
-                  <span className="font-semibold text-ink">{submittedPayload.ownerName}</span>
+                  <span className="font-semibold text-ink sm:text-right">{submittedPayload.ownerName}</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5">
                   <span className="text-ink-faint">Vehicle:</span>
-                  <span className="font-semibold text-ink">
+                  <span className="font-semibold text-ink sm:text-right">
                     {submittedPayload.vehicleMake} {submittedPayload.vehicleModel} ({submittedPayload.manufactureYear})
                   </span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5">
                   <span className="text-ink-faint">Service Category:</span>
-                  <span className="font-medium text-crimson">{submittedPayload.serviceCategory}</span>
+                  <span className="font-medium text-crimson sm:text-right">{submittedPayload.serviceCategory}</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5">
                   <span className="text-ink-faint">Preferred Intake:</span>
-                  <span className="font-medium text-ink">{submittedPayload.preferredDate || 'Earliest Slot'}</span>
+                  <span className="font-medium text-ink sm:text-right">{submittedPayload.preferredDate || 'Earliest Slot'}</span>
                 </div>
               </div>
 
@@ -412,15 +418,15 @@ export const ConciergeDesk: React.FC = () => {
                 href={submittedPayload.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 px-5 py-3 text-xs font-mono font-semibold uppercase tracking-wider text-parchment bg-emerald-700 hover:bg-emerald-800 rounded shadow transition-all"
+                className="w-full flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono font-semibold uppercase tracking-wider text-parchment bg-emerald-700 hover:bg-emerald-800 rounded shadow transition-all text-center"
               >
-                <Send className="w-4 h-4" />
+                <Send className="w-4 h-4 shrink-0" />
                 <span>Confirm via WhatsApp (+91 87965 76868)</span>
               </a>
 
               <button
                 onClick={() => setShowConfirmationModal(false)}
-                className="w-full py-2.5 text-xs font-mono text-ink-muted hover:text-ink uppercase tracking-wider text-center"
+                className="w-full py-2.5 min-h-[44px] text-xs font-mono text-ink-muted hover:text-ink uppercase tracking-wider text-center"
               >
                 Return to Monograph
               </button>

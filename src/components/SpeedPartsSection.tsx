@@ -56,7 +56,7 @@ export const SpeedPartsSection: React.FC = () => {
   });
 
   return (
-    <section id="speed-parts" className="py-20 border-b border-rule bg-oxford text-parchment relative overflow-hidden">
+    <section id="speed-parts" className="py-12 sm:py-20 border-b border-rule bg-oxford text-parchment relative overflow-hidden">
       {/* Background Graphic Watermark */}
       <div className="absolute -right-20 -bottom-20 select-none pointer-events-none opacity-[0.03] text-parchment font-serif text-[22vw] leading-none whitespace-nowrap font-bold">
         SPEED PARTS
@@ -68,7 +68,7 @@ export const SpeedPartsSection: React.FC = () => {
           <div className="flex items-center gap-2 text-xs font-mono text-brass-light font-bold">
             <span>CHAPTER V</span>
             <span>—</span>
-            <span className="tracking-archival uppercase text-parchment">WHOLESALE & OEM SUPPLY DIVISION</span>
+            <span className="tracking-ledger sm:tracking-archival uppercase text-parchment">WHOLESALE & OEM SUPPLY DIVISION</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-baseline">
@@ -141,7 +141,7 @@ export const SpeedPartsSection: React.FC = () => {
                 placeholder="Your Garage Name (e.g. Apex Motors)"
                 value={clientGarageName}
                 onChange={(e) => setClientGarageName(e.target.value)}
-                className="w-full sm:w-64 px-3 py-2 text-xs font-mono bg-oxford-dark/90 text-parchment border border-parchment/20 rounded placeholder:text-parchment/40 focus:outline-none focus:border-brass"
+                className="w-full sm:w-64 px-3 py-2.5 min-h-[44px] text-xs font-mono bg-oxford-dark/90 text-parchment border border-parchment/20 rounded placeholder:text-parchment/40 focus:outline-none focus:border-brass"
               />
             </div>
           </div>
@@ -151,13 +151,13 @@ export const SpeedPartsSection: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
               {/* Search Bar */}
               <div className="sm:col-span-8 relative">
-                <Search className="w-4 h-4 absolute left-3 top-3 text-parchment/50" />
+                <Search className="w-4 h-4 absolute left-3 top-3.5 text-parchment/50" />
                 <input
                   type="text"
                   placeholder="Search by part name, SKU, OEM number (e.g. 31922-2E900), or car model (Creta, Fortuner, BMW)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2.5 text-xs font-mono bg-oxford-dark/90 text-parchment border border-parchment/20 rounded placeholder:text-parchment/40 focus:outline-none focus:border-brass"
+                  className="w-full pl-9 pr-4 py-2.5 min-h-[44px] text-xs font-mono bg-oxford-dark/90 text-parchment border border-parchment/20 rounded placeholder:text-parchment/40 focus:outline-none focus:border-brass"
                 />
               </div>
 
@@ -167,7 +167,7 @@ export const SpeedPartsSection: React.FC = () => {
                   <button
                     key={filterOpt}
                     onClick={() => setSelectedBrandFilter(filterOpt)}
-                    className={`flex-1 py-1.5 rounded transition-colors text-[11px] ${
+                    className={`flex-1 py-2 px-1 rounded transition-colors text-[10px] sm:text-[11px] leading-tight text-center min-h-[44px] flex items-center justify-center ${
                       selectedBrandFilter === filterOpt
                         ? 'bg-parchment text-oxford font-semibold'
                         : 'text-parchment/70 hover:text-parchment'
@@ -181,7 +181,7 @@ export const SpeedPartsSection: React.FC = () => {
 
             {/* Category Filter Pills */}
             <div className="flex flex-wrap items-center gap-1.5 pt-2">
-              <span className="text-[11px] font-mono text-parchment/60 mr-1 flex items-center gap-1">
+              <span className="text-[11px] font-mono text-parchment/60 mr-1 flex items-center gap-1 shrink-0">
                 <Filter className="w-3 h-3" /> CATEGORY:
               </span>
               {categories.map((cat) => {
@@ -190,7 +190,7 @@ export const SpeedPartsSection: React.FC = () => {
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`px-3 py-1 text-xs font-mono rounded transition-all ${
+                    className={`px-3 py-1.5 text-xs font-mono rounded transition-all min-h-[44px] sm:min-h-[36px] flex items-center ${
                       isActive
                         ? 'bg-brass text-ink font-semibold'
                         : 'bg-oxford-surface hover:bg-oxford-light text-parchment/80 border border-parchment/15'
@@ -205,7 +205,7 @@ export const SpeedPartsSection: React.FC = () => {
 
           {/* Parts Table / Card View */}
           <div className="space-y-3 pt-2">
-            <div className="text-xs font-mono text-parchment/60 flex justify-between px-1">
+            <div className="text-xs font-mono text-parchment/60 flex flex-wrap justify-between gap-1 px-1">
               <span>LISTING {filteredParts.length} VERIFIED OEM COMPONENTS</span>
               <span>PRICES EXCLUSIVE OF STATUTORY GST</span>
             </div>
@@ -237,10 +237,10 @@ export const SpeedPartsSection: React.FC = () => {
                             <span className="text-[10px] font-mono px-2 py-0.5 bg-parchment/10 text-parchment/80 rounded border border-parchment/15">
                               {part.category}
                             </span>
-                            <span className="text-[10px] font-mono text-brass-light font-semibold">
+                            <span className="text-[10px] font-mono text-brass-light font-semibold break-all">
                               SKU: {part.sku}
                             </span>
-                            <span className="text-[10px] font-mono text-parchment/60">
+                            <span className="text-[10px] font-mono text-parchment/60 break-all">
                               OEM NO: {part.oemNumber}
                             </span>
                           </div>
@@ -262,7 +262,7 @@ export const SpeedPartsSection: React.FC = () => {
                         </div>
 
                         {/* Wholesale Pricing Column */}
-                        <div className="sm:text-right font-mono space-y-1 flex-shrink-0">
+                        <div className="sm:text-right font-mono space-y-1 shrink-0">
                           <div className="text-xs text-parchment/50">
                             Wholesale Rate (MOQ: {part.moq})
                           </div>
@@ -278,19 +278,21 @@ export const SpeedPartsSection: React.FC = () => {
 
                       {/* Bottom Action Strip with Interactive Quantity & Instant WhatsApp Link */}
                       <div className="pt-3 border-t border-parchment/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-                        <div className="flex items-center gap-3">
+                        <div className="flex flex-wrap items-center gap-3">
                           <span className="text-parchment/60 text-[11px]">Lot Quantity:</span>
-                          <div className="flex items-center border border-parchment/20 rounded bg-oxford">
+                          <div className="flex items-center border border-parchment/20 rounded bg-oxford overflow-hidden">
                             <button
                               onClick={() => handleQuantityChange(part.sku, -1, part.moq)}
-                              className="px-2 py-1 text-parchment hover:bg-oxford-light text-xs font-bold"
+                              className="w-10 h-10 sm:w-8 sm:h-8 min-w-[40px] sm:min-w-[32px] flex items-center justify-center text-parchment hover:bg-oxford-light text-base sm:text-sm font-bold transition-colors"
+                              aria-label="Decrease quantity"
                             >
                               -
                             </button>
-                            <span className="px-3 py-1 font-bold text-parchment text-xs">{qty}</span>
+                            <span className="px-3 sm:px-3 py-1 font-bold text-parchment text-xs">{qty}</span>
                             <button
                               onClick={() => handleQuantityChange(part.sku, 1, part.moq)}
-                              className="px-2 py-1 text-parchment hover:bg-oxford-light text-xs font-bold"
+                              className="w-10 h-10 sm:w-8 sm:h-8 min-w-[40px] sm:min-w-[32px] flex items-center justify-center text-parchment hover:bg-oxford-light text-base sm:text-sm font-bold transition-colors"
+                              aria-label="Increase quantity"
                             >
                               +
                             </button>
@@ -300,7 +302,7 @@ export const SpeedPartsSection: React.FC = () => {
                           </span>
                         </div>
 
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
                           <span className="text-[11px] text-parchment/60 hidden md:inline">
                             {part.stockStatus}
                           </span>
@@ -308,10 +310,10 @@ export const SpeedPartsSection: React.FC = () => {
                             href={whatsappUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-parchment rounded font-semibold text-xs transition-colors shadow-sm"
+                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] bg-emerald-600 hover:bg-emerald-700 text-parchment rounded font-semibold text-xs transition-colors shadow-sm text-center"
                           >
                             <span>WhatsApp Trade Inquiry</span>
-                            <ExternalLink className="w-3.5 h-3.5" />
+                            <ExternalLink className="w-3.5 h-3.5 shrink-0" />
                           </a>
                         </div>
                       </div>
@@ -325,7 +327,7 @@ export const SpeedPartsSection: React.FC = () => {
           {/* Regional Garages Bulk Dispatch Note */}
           <div className="p-4 bg-oxford-dark/60 rounded border border-parchment/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono">
             <div className="flex items-center gap-2 text-parchment/80">
-              <Clock className="w-4 h-4 text-brass-light flex-shrink-0" />
+              <Clock className="w-4 h-4 text-brass-light shrink-0" />
               <span>
                 Regional Garages in Pratapgarh, Kaushambi, Fatehpur, Mirzapur & Rewa: Need daily parts delivery? Inquire for institutional trade accounts.
               </span>
@@ -337,7 +339,7 @@ export const SpeedPartsSection: React.FC = () => {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 bg-brass text-ink font-bold uppercase rounded tracking-wider hover:bg-brass-light transition-colors whitespace-nowrap"
+              className="px-4 py-2.5 min-h-[44px] inline-flex items-center justify-center bg-brass text-ink font-bold uppercase rounded tracking-wider hover:bg-brass-light transition-colors whitespace-nowrap text-xs"
             >
               Open Trade Account
             </a>

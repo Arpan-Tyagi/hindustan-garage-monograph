@@ -11,7 +11,7 @@ import { FAQAndDirectory } from './components/FAQAndDirectory';
 
 export const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-parchment text-ink flex flex-col font-sans selection:bg-crimson selection:text-parchment">
+    <div className="min-h-screen bg-parchment text-ink flex flex-col font-sans selection:bg-crimson selection:text-parchment overflow-x-clip">
       {/* CHAPTER 1 & MASTHEAD: Archival Masthead Navigation */}
       <Header />
 

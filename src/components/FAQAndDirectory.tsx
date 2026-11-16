@@ -18,12 +18,12 @@ export const FAQAndDirectory: React.FC = () => {
   return (
     <div id="faq" className="border-t border-rule bg-parchment">
       {/* CHAPTER VIII: Frequently Asked Questions */}
-      <section className="py-20 border-b border-rule max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="py-12 sm:py-20 border-b border-rule max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="space-y-4">
           <div className="flex items-center gap-2 text-xs font-mono text-crimson font-bold">
             <span>CHAPTER VIII</span>
             <span>—</span>
-            <span className="tracking-archival uppercase text-ink">FREQUENTLY ASKED QUESTIONS</span>
+            <span className="tracking-ledger sm:tracking-archival uppercase text-ink">FREQUENTLY ASKED QUESTIONS</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-baseline">
@@ -77,7 +77,7 @@ export const FAQAndDirectory: React.FC = () => {
       </section>
 
       {/* CHAPTER IX: The George Town Directory & Archival Masthead Footer */}
-      <footer className="bg-ink text-parchment pt-16 pb-12 border-t border-rule-dark">
+      <footer className="bg-ink text-parchment pt-12 sm:pt-16 pb-10 sm:pb-12 border-t border-rule-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {/* Top Footer Banner */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-10 border-b border-rule-dark">
@@ -90,21 +90,21 @@ export const FAQAndDirectory: React.FC = () => {
                   EST. 1960
                 </span>
               </div>
-              <div className="text-xs font-mono tracking-archival uppercase text-parchment-dark/70">
+              <div className="text-xs font-mono tracking-wider sm:tracking-archival uppercase text-parchment-dark/70 break-words">
                 PRAYAGRAJ'S PREMIER AUTOMOTIVE INSTITUTION & SPEED PARTS TRADE DIVISION
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono">
               <a
                 href="#concierge-desk"
-                className="px-4 py-2 bg-crimson hover:bg-crimson-dark text-parchment rounded uppercase font-semibold tracking-wider transition-colors"
+                className="px-4 py-2.5 min-h-[44px] inline-flex items-center justify-center bg-crimson hover:bg-crimson-dark text-parchment rounded uppercase font-semibold tracking-wider transition-colors shadow-sm"
               >
                 Reserve a Bay
               </a>
               <a
                 href="#speed-parts"
-                className="px-4 py-2 bg-oxford hover:bg-oxford-light text-parchment rounded uppercase font-semibold tracking-wider transition-colors border border-parchment/20"
+                className="px-4 py-2.5 min-h-[44px] inline-flex items-center justify-center bg-oxford hover:bg-oxford-light text-parchment rounded uppercase font-semibold tracking-wider transition-colors border border-parchment/20 shadow-sm"
               >
                 Speed Parts Trade Desk
               </a>
@@ -112,10 +112,10 @@ export const FAQAndDirectory: React.FC = () => {
           </div>
 
           {/* Directory Dual-Facility Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-xs font-mono text-parchment-dark/80">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-xs font-mono text-parchment-dark/80">
             {/* Facility 1: Central Workshop */}
             <div className="space-y-3">
-              <div className="text-brass font-bold uppercase tracking-archival text-[11px] pb-1 border-b border-rule-dark">
+              <div className="text-brass font-bold uppercase tracking-ledger sm:tracking-archival text-[11px] pb-1 border-b border-rule-dark">
                 01. CENTRAL WORKSHOP
               </div>
               <div className="space-y-1.5 text-parchment/90">
@@ -133,18 +133,18 @@ export const FAQAndDirectory: React.FC = () => {
                   href="https://maps.google.com/?q=56+MG+Marg+George+Town+Prayagraj"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-brass hover:text-brass-light transition-colors"
+                  className="inline-flex items-center gap-1.5 text-brass hover:text-brass-light transition-colors py-2 min-h-[44px]"
                 >
-                  <MapPin className="w-3.5 h-3.5" />
+                  <MapPin className="w-3.5 h-3.5 shrink-0" />
                   <span>Open Workshop in Maps</span>
-                  <ExternalLink className="w-3 h-3 ml-0.5" />
+                  <ExternalLink className="w-3 h-3 ml-0.5 shrink-0" />
                 </a>
               </div>
             </div>
 
             {/* Facility 2: Speed Parts Wholesale Warehouse */}
             <div className="space-y-3">
-              <div className="text-brass font-bold uppercase tracking-archival text-[11px] pb-1 border-b border-rule-dark">
+              <div className="text-brass font-bold uppercase tracking-ledger sm:tracking-archival text-[11px] pb-1 border-b border-rule-dark">
                 02. SPEED PARTS WAREHOUSE
               </div>
               <div className="space-y-1.5 text-parchment/90">
@@ -162,9 +162,9 @@ export const FAQAndDirectory: React.FC = () => {
                   href={`https://wa.me/${WORKSHOP_PHONE}?text=${encodeURIComponent('Hello Speed Parts, I am visiting the Medical Chauraha trade counter.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-brass hover:text-brass-light transition-colors"
+                  className="inline-flex items-center gap-1.5 text-brass hover:text-brass-light transition-colors py-2 min-h-[44px]"
                 >
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
                   <span>Contact Parts Counter</span>
                 </a>
               </div>
@@ -172,7 +172,7 @@ export const FAQAndDirectory: React.FC = () => {
 
             {/* Operational Telemetry & Hours */}
             <div className="space-y-3">
-              <div className="text-brass font-bold uppercase tracking-archival text-[11px] pb-1 border-b border-rule-dark">
+              <div className="text-brass font-bold uppercase tracking-ledger sm:tracking-archival text-[11px] pb-1 border-b border-rule-dark">
                 03. HOURS & TELEMETRY
               </div>
               <div className="space-y-1.5">
@@ -193,13 +193,13 @@ export const FAQAndDirectory: React.FC = () => {
 
             {/* Statutory Compliance & Credentials */}
             <div className="space-y-3">
-              <div className="text-brass font-bold uppercase tracking-archival text-[11px] pb-1 border-b border-rule-dark">
+              <div className="text-brass font-bold uppercase tracking-ledger sm:tracking-archival text-[11px] pb-1 border-b border-rule-dark">
                 04. STATUTORY CREDENTIALS
               </div>
               <div className="space-y-1.5">
                 <div>
                   <span className="text-parchment-dark/50 block">GSTIN Registration:</span>
-                  <span className="text-parchment font-mono font-bold">09ADQPA5477Q1ZN</span>
+                  <span className="text-parchment font-mono font-bold break-all">09ADQPA5477Q1ZN</span>
                 </div>
                 <div>
                   <span className="text-parchment-dark/50 block">Enterprise Classification:</span>
@@ -214,11 +214,11 @@ export const FAQAndDirectory: React.FC = () => {
           </div>
 
           {/* Bottom Colophon & Legal Notice */}
-          <div className="pt-8 border-t border-rule-dark flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-parchment-dark/50">
+          <div className="pt-8 border-t border-rule-dark flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-parchment-dark/50 text-center sm:text-left">
             <div>
               © 1960–2026 Hindustan Garage & Speed Parts Division. All rights reserved.
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1">
               <span>George Town, Prayagraj</span>
               <span>•</span>
               <span>Non-3D Editorial Monograph</span>

@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '400px',
+      },
       colors: {
         parchment: {
           DEFAULT: '#F5F2EB',
@@ -16,7 +19,7 @@ export default {
         ink: {
           DEFAULT: '#141413',
           muted: '#4A4844',
-          faint: '#7A7771',
+          faint: '#66635D',
           border: '#D6D1C4',
         },
         crimson: {
