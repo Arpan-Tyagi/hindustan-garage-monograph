@@ -8,7 +8,9 @@ export const chronicleEvents: ChronicleEvent[] = [
     narration:
       'In the dawn of India’s post-independence automotive era, Hindustan Garage opens its iron coachwork gates in George Town, Prayagraj. Founded by master mechanical craftsmen, the workshop initially services the venerable Hindustan Ambassador Mark I, Fiat 1100 Millecento, and Standard Vanguard. The founding doctrine is engraved on the brass workshop threshold: "No machine departs until mechanical truth is achieved."',
     technicalMilestone: 'Precision hand-lapping of cast-iron valve seats, custom bronze bushing turning on British lathes, and mechanical carburetor sync.',
-    archivalArtifact: 'Archival Municipal Trade License No. 42/1960, Prayagraj Municipal Board.'
+    archivalArtifact: 'Archival Municipal Trade License No. 42/1960, Prayagraj Municipal Board.',
+    imageUrl: '/images/chronicle-1960.jpg',
+    imageCaption: 'George Town coachbuilding threshold and early Ambassador mechanical bay (circa 1960)'
   },
   {
     year: '1975',
@@ -35,7 +37,9 @@ export const chronicleEvents: ChronicleEvent[] = [
     narration:
       'Hindustan Garage commissions an Italian negative-pressure downdraft baking booth and computerized paint colorimetry lab at 56, M.G. Marg. For the first time in Eastern Uttar Pradesh, vehicle owners achieve OEM factory-spec mirror paint finishes with zero airborne dust contamination, backed by direct cashless tie-ups with leading general insurance providers.',
     technicalMilestone: 'Installation of Nova Verta 65°C thermostatically controlled heated baking booth and PPG computerized tint matching system.',
-    archivalArtifact: 'First computerized spectrometer color-matching plaque (October 2004).'
+    archivalArtifact: 'First computerized spectrometer color-matching plaque (October 2004).',
+    imageUrl: '/images/chronicle-booth.jpg',
+    imageCaption: 'The Italian negative-pressure downdraft paint booth installation at 56, M.G. Marg (2004)'
   },
   {
     year: '2015',

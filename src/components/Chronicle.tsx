@@ -29,9 +29,9 @@ export const Chronicle: React.FC = () => {
           {chronicleEvents.map((event) => (
             <div
               key={event.year}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-start relative group"
+              className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start relative group"
             >
-              {/* Year Stamp Column with Architecture Guide Line */}
+              {/* Year Stamp Column */}
               <div className="lg:col-span-2 flex lg:flex-col items-center lg:items-end justify-between lg:justify-start pr-0 lg:pr-6 lg:border-r lg:border-rule lg:min-h-[140px]">
                 <div className="font-serif text-3xl lg:text-4xl font-bold text-crimson group-hover:scale-105 transition-transform">
                   {event.year}
@@ -52,6 +52,23 @@ export const Chronicle: React.FC = () => {
                       ARCHIVAL RECORD
                     </span>
                   </div>
+
+                  {/* Archival Historical Photograph */}
+                  {event.imageUrl && (
+                    <div className="relative overflow-hidden rounded border border-rule group/chronicleimg">
+                      <img
+                        src={event.imageUrl}
+                        alt={event.headline}
+                        className="w-full h-48 sm:h-64 object-cover object-center group-hover/chronicleimg:scale-[1.01] transition-transform duration-500 ease-editorial"
+                        loading="lazy"
+                      />
+                      {event.imageCaption && (
+                        <div className="absolute bottom-1.5 left-1.5 right-1.5 px-2.5 py-1 bg-ink/80 backdrop-blur-sm rounded text-[10px] font-mono text-parchment-light truncate">
+                          {event.imageCaption}
+                        </div>
+                      )}
+                    </div>
+                  )}
 
                   <p className="font-sans text-sm text-ink-muted leading-relaxed">
                     {event.narration}

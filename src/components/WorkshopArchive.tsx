@@ -46,8 +46,8 @@ export const WorkshopArchive: React.FC = () => {
 
         {/* Filter Bar */}
         <div className="flex flex-wrap items-center gap-2 pb-4 border-b border-rule">
-          <span className="text-xs font-mono text-ink-faint mr-2 flex items-center gap-1 shrink-0">
-            <Filter className="w-3.5 h-3.5" />
+          <span className="text-xs font-mono text-ink-faint mr-2 flex items-center gap-1">
+            <Filter className="w-3.5 h-3.5 shrink-0" />
             FILTER BY CHASSIS:
           </span>
           {categories.map((cat) => {
@@ -56,7 +56,7 @@ export const WorkshopArchive: React.FC = () => {
               <button
                 key={cat.id}
                 onClick={() => setSelectedFilter(cat.id)}
-                className={`px-3.5 py-2 text-xs font-mono rounded transition-all min-h-[44px] sm:min-h-[38px] flex items-center justify-center ${
+                className={`px-3 py-1.5 min-h-[44px] sm:min-h-[38px] text-xs font-mono rounded transition-all ${
                   isActive
                     ? 'bg-ink text-parchment font-semibold shadow-sm'
                     : 'bg-parchment hover:bg-parchment-dark text-ink-muted border border-rule'
@@ -86,6 +86,23 @@ export const WorkshopArchive: React.FC = () => {
                       {vehicle.bayNumber}
                     </span>
                   </div>
+
+                  {/* Vehicle Documentary Photograph */}
+                  {vehicle.imageUrl && (
+                    <div className="relative overflow-hidden rounded border border-rule group/archiveimg">
+                      <img
+                        src={vehicle.imageUrl}
+                        alt={vehicle.model}
+                        className="w-full h-44 sm:h-48 object-cover object-center group-hover/archiveimg:scale-[1.02] transition-transform duration-500 ease-editorial"
+                        loading="lazy"
+                      />
+                      {vehicle.imageCaption && (
+                        <div className="absolute bottom-1.5 left-1.5 right-1.5 px-2 py-0.5 bg-ink/80 backdrop-blur-sm rounded text-[9px] font-mono text-parchment-light truncate">
+                          {vehicle.imageCaption}
+                        </div>
+                      )}
+                    </div>
+                  )}
 
                   <div className="space-y-1">
                     <div className="text-[11px] font-mono uppercase tracking-wider text-ink-faint">
@@ -164,16 +181,16 @@ export const WorkshopArchive: React.FC = () => {
                           {vehicle.partsReplaced.map((part, pIdx) => (
                             <div key={pIdx} className="p-2 bg-parchment rounded border border-rule/70">
                               <div className="font-medium text-ink">{part.name}</div>
-                              <div className="text-ink-faint text-[10px] flex flex-wrap items-center justify-between gap-1 mt-0.5">
-                                <span className="break-all">SKU: {part.sku}</span>
-                                <span className="break-all">OEM: {part.oemCode}</span>
+                              <div className="text-ink-faint text-[10px] flex justify-between mt-0.5">
+                                <span>SKU: {part.sku}</span>
+                                <span>OEM: {part.oemCode}</span>
                               </div>
                             </div>
                           ))}
                         </div>
                       </div>
 
-                      <div className="text-[10px] font-mono text-ink-faint pt-1 break-words">
+                      <div className="text-[10px] font-mono text-ink-faint pt-1">
                         Client Origin: {vehicle.clientOrigin} • {vehicle.completedDate}
                       </div>
                     </div>

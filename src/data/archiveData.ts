@@ -26,7 +26,9 @@ export const archiveVehicles: ArchiveVehicle[] = [
     technicianSignOff: 'Master Tech R. K. Srivastava (Certification: MB Star Diagnostics Level 3)',
     inspectionStamp: 'VERIFIED & ROAD TESTED',
     completedDate: 'Completed 14 February 2026',
-    clientOrigin: 'Civil Lines, Prayagraj'
+    clientOrigin: 'Civil Lines, Prayagraj',
+    imageUrl: '/images/archive-w213.jpg',
+    imageCaption: 'Mercedes-Benz E-Class W213 undergoing 9G-Tronic Mechatronic calibration in Bay 01'
   },
   {
     id: 'arch-creta',
@@ -53,7 +55,9 @@ export const archiveVehicles: ArchiveVehicle[] = [
     technicianSignOff: 'Lead Tech M. Aslam (CRDi Powertrain Specialist)',
     inspectionStamp: 'VERIFIED & ROAD TESTED',
     completedDate: 'Completed 08 February 2026',
-    clientOrigin: 'George Town, Prayagraj'
+    clientOrigin: 'George Town, Prayagraj',
+    imageUrl: '/images/archive-creta.jpg',
+    imageCaption: 'Hyundai Creta 1.5 CRDi on Powertrain Diagnostic Lift in Bay 02'
   },
   {
     id: 'arch-bmw5',
@@ -80,7 +84,9 @@ export const archiveVehicles: ArchiveVehicle[] = [
     technicianSignOff: 'Master Tech R. K. Srivastava (BMW Certified Specialist)',
     inspectionStamp: 'VERIFIED & ROAD TESTED',
     completedDate: 'Completed 29 January 2026',
-    clientOrigin: 'Tagore Town, Prayagraj'
+    clientOrigin: 'Tagore Town, Prayagraj',
+    imageUrl: '/images/archive-bmw5.jpg',
+    imageCaption: 'BMW 5 Series G30 M Sport following Brembo High-Carbon brake fitment & Road Force balance'
   },
   {
     id: 'arch-fortuner',
@@ -106,7 +112,9 @@ export const archiveVehicles: ArchiveVehicle[] = [
     technicianSignOff: 'Senior Tech Anand Verma (Chassis & Alignment Lead)',
     inspectionStamp: 'VERIFIED & ROAD TESTED',
     completedDate: 'Completed 22 January 2026',
-    clientOrigin: 'Katra, Prayagraj'
+    clientOrigin: 'Katra, Prayagraj',
+    imageUrl: '/images/archive-fortuner.jpg',
+    imageCaption: 'Toyota Fortuner 4x4 undergoing 3D Hunter Laser Alignment in Bay 03'
   },
   {
     id: 'arch-ambassador',
@@ -133,7 +141,9 @@ export const archiveVehicles: ArchiveVehicle[] = [
     technicianSignOff: 'Master Craftsman B. P. Sharma (54 Years Workshop Tenure)',
     inspectionStamp: 'HISTORIC RE-CERTIFIED',
     completedDate: 'Completed 12 December 2025',
-    clientOrigin: 'M.G. Marg, George Town'
+    clientOrigin: 'M.G. Marg, George Town',
+    imageUrl: '/images/archive-ambassador.jpg',
+    imageCaption: '1968 Hindustan Ambassador Mark II following complete mechanical restoration in Bay 02'
   },
   {
     id: 'arch-fleet',
@@ -160,6 +170,8 @@ export const archiveVehicles: ArchiveVehicle[] = [
     technicianSignOff: 'Fleet Operations Lead S. K. Dwivedi',
     inspectionStamp: 'VERIFIED & ROAD TESTED',
     completedDate: 'Completed 18 January 2026',
-    clientOrigin: 'High Court Judicial Enclave, Prayagraj'
+    clientOrigin: 'High Court Judicial Enclave, Prayagraj',
+    imageUrl: '/images/archive-fleet.jpg',
+    imageCaption: 'High Court Administrative fleet vehicles undergoing rapid service in Bay 08'
   }
 ];

@@ -44,6 +44,8 @@ export interface ArchiveVehicle {
   inspectionStamp: string;
   completedDate: string;
   clientOrigin: string;
+  imageUrl?: string;
+  imageCaption?: string;
 }
 
 export interface SpeedPart {
@@ -104,6 +106,8 @@ export interface TechnicalArticle {
   technicalSpecs: { [key: string]: string };
   paragraphs: string[];
   verdict: string;
+  imageUrl?: string;
+  imageCaption?: string;
 }
 
 export interface ChronicleEvent {
@@ -113,6 +117,8 @@ export interface ChronicleEvent {
   narration: string;
   technicalMilestone: string;
   archivalArtifact: string;
+  imageUrl?: string;
+  imageCaption?: string;
 }
 
 export interface FAQItem {

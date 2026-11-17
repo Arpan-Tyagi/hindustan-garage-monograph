@@ -29,7 +29,7 @@ export const TechnicalJournal: React.FC = () => {
         </div>
 
         {/* Articles Grid (4 Comprehensive Treatises) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {technicalArticles.map((article) => (
             <div
               key={article.id}
@@ -43,6 +43,23 @@ export const TechnicalJournal: React.FC = () => {
                     {article.readingTime}
                   </span>
                 </div>
+
+                {/* Documentary Technical Photograph */}
+                {article.imageUrl && (
+                  <div className="relative overflow-hidden rounded border border-rule group/journalimg">
+                    <img
+                      src={article.imageUrl}
+                      alt={article.title}
+                      className="w-full h-44 sm:h-52 object-cover object-center group-hover/journalimg:scale-[1.02] transition-transform duration-500 ease-editorial"
+                      loading="lazy"
+                    />
+                    {article.imageCaption && (
+                      <div className="absolute bottom-1.5 left-1.5 right-1.5 px-2.5 py-1 bg-ink/80 backdrop-blur-sm rounded text-[10px] font-mono text-parchment-light truncate">
+                        {article.imageCaption}
+                      </div>
+                    )}
+                  </div>
+                )}
 
                 <div className="space-y-2">
                   <h3 className="font-serif text-2xl font-normal text-ink group-hover:text-crimson transition-colors leading-snug">
@@ -92,16 +109,16 @@ export const TechnicalJournal: React.FC = () => {
           role="dialog"
           aria-modal="true"
           aria-labelledby="journal-reader-title"
-          className="fixed inset-0 z-50 flex flex-col items-center justify-start sm:justify-center p-3 sm:p-4 bg-ink/75 backdrop-blur-sm overflow-y-auto safe-pb safe-pt"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-start sm:justify-center p-3 sm:p-6 bg-ink/75 backdrop-blur-sm overflow-y-auto safe-pb safe-pt"
         >
-          <div className="bezel-container max-w-3xl w-full my-auto p-5 sm:p-8 space-y-5 bg-parchment-light shadow-2xl animate-fadeIn max-h-[calc(100dvh-2rem)] overflow-y-auto">
+          <div className="bezel-container max-w-3xl w-full my-auto p-5 sm:p-10 space-y-6 bg-parchment-light shadow-2xl animate-fadeIn max-h-[90vh] overflow-y-auto">
             {/* Modal Header */}
             <div className="flex items-start justify-between pb-4 border-b border-rule gap-3">
               <div className="space-y-1">
                 <span className="text-xs font-mono font-bold uppercase tracking-ledger sm:tracking-archival text-crimson">
                   {activeArticle.chapterNumber} • ARCHIVAL DISCOURSE
                 </span>
-                <h3 id="journal-reader-title" className="font-serif text-2xl sm:text-3xl font-normal text-ink leading-tight break-words">
+                <h3 id="journal-reader-title" className="font-serif text-2xl sm:text-3xl font-normal text-ink leading-tight">
                   {activeArticle.title}
                 </h3>
                 <div className="text-xs font-mono text-ink-faint pt-1">
@@ -111,15 +128,32 @@ export const TechnicalJournal: React.FC = () => {
 
               <button
                 onClick={() => setActiveArticle(null)}
-                className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-ink-muted hover:text-ink text-sm font-mono font-bold rounded hover:bg-parchment transition-colors"
+                className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-ink-muted hover:text-ink text-sm font-mono font-bold shrink-0"
                 aria-label="Close Article"
               >
-                <X className="w-5 h-5 shrink-0" />
+                <X className="w-5 h-5" />
               </button>
             </div>
 
+            {/* Modal Featured Image */}
+            {activeArticle.imageUrl && (
+              <div className="relative overflow-hidden rounded-lg border border-rule">
+                <img
+                  src={activeArticle.imageUrl}
+                  alt={activeArticle.title}
+                  className="w-full h-56 sm:h-72 object-cover object-center"
+                />
+                {activeArticle.imageCaption && (
+                  <div className="p-2.5 bg-ink text-parchment-light text-xs font-mono flex items-center justify-between">
+                    <span>{activeArticle.imageCaption}</span>
+                    <span className="text-brass text-[10px]">DOCUMENTARY ARCHIVE</span>
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* Abstract */}
-            <div className="p-4 bg-parchment rounded border border-rule italic font-serif text-sm sm:text-base text-ink leading-relaxed">
+            <div className="p-4 bg-parchment rounded border border-rule italic font-serif text-base text-ink leading-relaxed">
               "{activeArticle.abstract}"
             </div>
 
@@ -131,9 +165,9 @@ export const TechnicalJournal: React.FC = () => {
               </div>
               <div className="space-y-1.5 pt-1">
                 {Object.entries(activeArticle.technicalSpecs).map(([key, val]) => (
-                  <div key={key} className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-1 border-b border-rule/30 gap-0.5">
+                  <div key={key} className="flex flex-col sm:flex-row sm:justify-between py-1 border-b border-rule/30 gap-0.5">
                     <span className="text-ink-faint">{key}:</span>
-                    <span className="font-semibold text-ink sm:text-right break-words">{val}</span>
+                    <span className="font-semibold text-ink break-words">{val}</span>
                   </div>
                 ))}
               </div>
@@ -159,7 +193,7 @@ export const TechnicalJournal: React.FC = () => {
             <div className="pt-4 border-t border-rule text-right">
               <button
                 onClick={() => setActiveArticle(null)}
-                className="w-full sm:w-auto px-6 py-3 min-h-[44px] text-xs font-mono font-semibold uppercase tracking-wider text-parchment bg-ink hover:bg-ink-muted rounded transition-colors"
+                className="px-5 py-2.5 min-h-[44px] text-xs font-mono font-semibold uppercase tracking-wider text-parchment bg-ink hover:bg-ink-muted rounded transition-colors"
               >
                 Close Discourse
               </button>

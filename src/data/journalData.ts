@@ -25,7 +25,9 @@ export const technicalArticles: TechnicalArticle[] = [
       'Furthermore, our 66-year mechanical heritage ensures that diagnostic trouble codes (DTCs) are treated as clues, not dogmatic mandates to replace entire sub-assemblies. Where a franchised dealership will quote ₹3,80,000 to replace an entire mechatronic valve body, our master technicians measure solenoid internal resistance, replace hardened micro-O-rings, flush contaminated fluid with factory-spec Fuchs Titan, and adapt shifts on local test corridors.',
       'The verdict is incontrovertible: true automotive luxury is defined by rigorous diagnostic mastery, not the postal code of the workshop.'
     ],
-    verdict: 'Prayagraj luxury owners save an average of 42 hours in turnaround time and upwards of 50% in unnecessary dealer component replacements by opting for localized, engineering-grade stewardship at 56, M.G. Marg.'
+    verdict: 'Prayagraj luxury owners save an average of 42 hours in turnaround time and upwards of 50% in unnecessary dealer component replacements by opting for localized, engineering-grade stewardship at 56, M.G. Marg.',
+    imageUrl: '/images/journal-doip.jpg',
+    imageCaption: 'DoIP optical diagnostic terminal performing gateway adaptation on European luxury platform'
   },
   {
     id: 'crdi-failures',
@@ -51,7 +53,9 @@ export const technicalArticles: TechnicalArticle[] = [
       'At Hindustan Garage, we diagnose these failures before they cause cataclysmic piston crown melt. Our workshop is equipped with a digital back-leakage diagnostic manifold and an ultrasonic restorative cavitation bath. Injectors are evaluated on a high-pressure test bench for pre-injection, main injection, and post-injection flow rates across varying rail pressures.',
       'We replace only fatigued nozzle needles with certified components from our Speed Parts division and re-generate the mandatory 16-character IMA injector correction code. This code communicates exact manufacturing flow characteristics to the vehicle’s ECU, ensuring zero cylinder knock and perfectly balanced crankshaft rotational velocity.'
     ],
-    verdict: 'Preventative fuel filtration using genuine 2-micron OEM filter elements (such as Hyundai Mobis 31922-2E900) every 15,000 km is the single most critical insurance policy against catastrophic fuel system failure.'
+    verdict: 'Preventative fuel filtration using genuine 2-micron OEM filter elements (such as Hyundai Mobis 31922-2E900) every 15,000 km is the single most critical insurance policy against catastrophic fuel system failure.',
+    imageUrl: '/images/journal-crdi.jpg',
+    imageCaption: 'High-pressure CRDi common rail injector calibration and bench flow testing'
   },
   {
     id: 'paint-metallurgy',
@@ -77,7 +81,9 @@ export const technicalArticles: TechnicalArticle[] = [
       'Color formulation is managed digitally using the PPG RapidMatch multi-angle spectrophotometer. By measuring paint surface reflectivity across five distinct optical angles, our system accounts for metallic flake orientation, pearl mica interference, and natural sun-induced clearcoat weathering, generating an exact pigment formula accurate to 0.05 grams.',
       'Once applied, the booth switches from ventilation to full recirculation mode, firing our Italian Riello diesel burner to elevate the ambient air temperature to a steady 65°C. This thermal cycle triggers cross-linking polymerisation inside the high-solids polyurethane clearcoat, yielding a scratch-resistant finish with an OEM-spec pencil hardness rating of 2H.'
     ],
-    verdict: 'Factory-grade paint restoration cannot occur in an open shed. Only a climate-controlled downdraft baking suite can guarantee an enduring 3-year warranty against clearcoat peeling and orange-peel texture distortion.'
+    verdict: 'Factory-grade paint restoration cannot occur in an open shed. Only a climate-controlled downdraft baking suite can guarantee an enduring 3-year warranty against clearcoat peeling and orange-peel texture distortion.',
+    imageUrl: '/images/journal-paint.jpg',
+    imageCaption: 'Dust-free Italian downdraft booth during 65°C high-solids polyurethane clearcoat baking cycle'
   },
   {
     id: 'spurious-spares',
@@ -103,6 +109,8 @@ export const technicalArticles: TechnicalArticle[] = [
       'On friction components, genuine Mobis / Sangsin brake pads feature chamfered edges, vulcanized anti-squeal shims, and high-temperature organic backing resins that do not fade when descending hilly terrain or stopping rapidly from highway speeds on NH-19.',
       'We supply independent workshops and private owners across Prayagraj, Pratapgarh, Kaushambi, and Mirzapur with wholesale invoice transparency (GSTIN: 09ADQPA5477Q1ZN). When an installer buys from Speed Parts, they receive not just a component, but the verified institutional integrity of a 66-year-old engineering house.'
     ],
-    verdict: 'Saving ₹400 on a counterfeit filter is the quickest route to an ₹80,000 engine overhaul. Always verify the authorized wholesale pedigree of critical mechanical components through certified trade divisions.'
+    verdict: 'Saving ₹400 on a counterfeit filter is the quickest route to an ₹80,000 engine overhaul. Always verify the authorized wholesale pedigree of critical mechanical components through certified trade divisions.',
+    imageUrl: '/images/journal-spares.jpg',
+    imageCaption: 'Forensic inspection of genuine OEM micro-filtration media and holographic seals'
   }
 ];
