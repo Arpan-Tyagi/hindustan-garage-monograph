@@ -121,19 +121,25 @@ export const Header: React.FC = () => {
             <div className="flex items-center gap-2 sm:gap-3">
               <a
                 href="#speed-parts"
-                className="hidden 2xl:inline-flex items-center gap-1.5 px-3.5 py-2 min-h-[44px] text-xs font-mono font-medium uppercase tracking-wider text-parchment bg-oxford hover:bg-oxford-dark border border-oxford-light/30 rounded shadow-sm transition-all btn-dignified"
+                data-cursor="trade"
+                className="hidden 2xl:inline-flex items-center gap-2 px-3.5 py-2 min-h-[44px] text-xs font-mono font-medium uppercase tracking-wider text-parchment bg-oxford hover:bg-oxford-dark border border-oxford-light/30 rounded shadow-sm transition-all btn-dignified group active:scale-[0.98]"
               >
-                <Wrench className="w-3.5 h-3.5 text-brass-light shrink-0" />
+                <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <Wrench className="w-3 h-3 text-brass-light" />
+                </span>
                 <span>Trade Parts Desk</span>
               </a>
 
               <a
                 href="#concierge-desk"
-                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 min-h-[44px] text-xs font-mono font-semibold uppercase tracking-wider text-parchment bg-crimson hover:bg-crimson-dark border border-crimson-light/40 rounded shadow-sm transition-all btn-dignified"
+                data-cursor="interactive"
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-xs font-mono font-semibold uppercase tracking-wider text-parchment bg-crimson hover:bg-crimson-dark border border-crimson-light/40 rounded shadow-sm transition-all btn-dignified group active:scale-[0.98]"
               >
                 <Calendar className="w-3.5 h-3.5 shrink-0" />
                 <span>Reserve a Bay</span>
-                <ArrowUpRight className="w-3.5 h-3.5 ml-0.5 shrink-0" />
+                <span className="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center shrink-0 ml-0.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
+                  <ArrowUpRight className="w-3.5 h-3.5 text-parchment" />
+                </span>
               </a>
 
               {/* Mobile Quick Reserve Button (<640px) */}

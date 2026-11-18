@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import App from '../App';
 
 describe('Responsive Layout & Interactive Controls', () => {
@@ -23,7 +23,7 @@ describe('Responsive Layout & Interactive Controls', () => {
     expect(menuToggle).toHaveAttribute('aria-expanded', 'false');
   });
 
-  it('submits concierge reservation and shows responsive confirmation modal', () => {
+  it('submits concierge reservation and shows responsive confirmation modal', async () => {
     render(<App />);
 
     const nameInput = screen.getByPlaceholderText(/e\.g\. Adv\. R\. S\. Shukla/i);
@@ -51,10 +51,12 @@ describe('Responsive Layout & Interactive Controls', () => {
     const closeBtn = screen.getByRole('button', { name: /Close Confirmation Modal/i });
     expect(closeBtn).toHaveClass('min-h-[44px]');
     fireEvent.click(closeBtn);
-    expect(screen.queryByText(/Bay Allocation Initiated/i)).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.queryByText(/Bay Allocation Initiated/i)).not.toBeInTheDocument();
+    });
   });
 
-  it('opens and closes the Technical Journal discourse reader modal with accessible dialog role', () => {
+  it('opens and closes the Technical Journal discourse reader modal with accessible dialog role', async () => {
     render(<App />);
 
     const readButtons = screen.getAllByRole('button', { name: /Read Discourse/i });
@@ -75,7 +77,9 @@ describe('Responsive Layout & Interactive Controls', () => {
     expect(closeArticleBtn).toHaveClass('min-h-[44px]');
     fireEvent.click(closeArticleBtn);
 
-    expect(screen.queryByText(/ARCHIVAL DISCOURSE/i)).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.queryByText(/ARCHIVAL DISCOURSE/i)).not.toBeInTheDocument();
+    });
   });
 
   it('ensures touch targets for mobile buttons, inputs, tabs, and filters meet minimum standards', () => {
@@ -129,7 +133,7 @@ describe('Responsive Layout & Interactive Controls', () => {
     expect(decrementedQty).toBe(initialQty);
   });
 
-  it('expands and collapses vehicle diagnostic records in Workshop Archive', () => {
+  it('expands and collapses vehicle diagnostic records in Workshop Archive', async () => {
     render(<App />);
 
     const expandButtons = screen.getAllByRole('button', { name: /View Replaced Parts & Diagnostics/i });
@@ -144,10 +148,12 @@ describe('Responsive Layout & Interactive Controls', () => {
     const hideBtn = screen.getByRole('button', { name: /Hide Replaced Parts & Interventions/i });
     fireEvent.click(hideBtn);
 
-    expect(screen.queryByText(/Core Interventions:/i)).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.queryByText(/Core Interventions:/i)).not.toBeInTheDocument();
+    });
   });
 
-  it('toggles FAQ accordions cleanly', () => {
+  it('toggles FAQ accordions cleanly', async () => {
     render(<App />);
 
     const faqQuestions = screen.getAllByText(/Why should I service my Mercedes-Benz, BMW, or Audi at Hindustan Garage/i);
@@ -158,6 +164,9 @@ describe('Responsive Layout & Interactive Controls', () => {
 
     // Click to close
     fireEvent.click(faqQuestions[0]);
-    expect(screen.queryByText(/Franchised luxury dealerships in Lucknow require a grueling 200 km flatbed journey/i)).not.toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(screen.queryByText(/Franchised luxury dealerships in Lucknow require a grueling 200 km flatbed journey/i)).not.toBeInTheDocument();
+    });
   });
 });

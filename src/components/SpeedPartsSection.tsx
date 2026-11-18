@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { speedPartsCatalog } from '../data/partsData';
 import { generateSpeedPartsWhatsAppUrl, WORKSHOP_PHONE } from '../utils/whatsapp';
 import {
@@ -10,6 +11,8 @@ import {
   Shield,
   Clock,
 } from 'lucide-react';
+import { LUXURY_EASE, fadeInUpVariant } from '../utils/motion';
+import { MaskedHeading, RollingCounter, TelemetryScramble } from './text';
 
 export const SpeedPartsSection: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -64,7 +67,13 @@ export const SpeedPartsSection: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
         {/* Section Chapter Header */}
-        <div className="space-y-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          variants={fadeInUpVariant}
+          className="space-y-4"
+        >
           <div className="flex items-center gap-2 text-xs font-mono text-brass-light font-bold">
             <span>CHAPTER V</span>
             <span>—</span>
@@ -77,9 +86,13 @@ export const SpeedPartsSection: React.FC = () => {
                 <Truck className="w-3.5 h-3.5 text-brass-light" />
                 <span>CENTRAL LOGISTICS WAREHOUSE • MEDICAL CHAURAHA, PRAYAGRAJ</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-parchment leading-tight">
+              <MaskedHeading
+                as="h2"
+                className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-parchment leading-tight"
+                italicWords={['Benchmark.']}
+              >
                 SPEED PARTS — The Regional Four-Wheeler OEM Supply Benchmark.
-              </h2>
+              </MaskedHeading>
             </div>
             <p className="lg:col-span-4 text-sm font-sans text-parchment/80 leading-relaxed">
               Serving independent trade garages and fleet operators within a 100–150 km radius across Prayagraj,
@@ -87,11 +100,17 @@ export const SpeedPartsSection: React.FC = () => {
               focus on 100% Genuine Hyundai Mobis components alongside all four-wheeler brands.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Feature Badges Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="p-4 bg-oxford-dark/80 border border-parchment/15 rounded-lg space-y-1.5">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6, ease: LUXURY_EASE }}
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4"
+        >
+          <div className="p-4 bg-oxford-dark/80 border border-parchment/15 rounded-lg space-y-1.5 hover:border-brass/40 transition-colors">
             <div className="flex items-center gap-2 text-brass-light font-mono text-xs font-bold uppercase">
               <Shield className="w-4 h-4" />
               <span>100% Genuine Mobis & OEM Guarantee</span>
@@ -101,7 +120,7 @@ export const SpeedPartsSection: React.FC = () => {
             </p>
           </div>
 
-          <div className="p-4 bg-oxford-dark/80 border border-parchment/15 rounded-lg space-y-1.5">
+          <div className="p-4 bg-oxford-dark/80 border border-parchment/15 rounded-lg space-y-1.5 hover:border-brass/40 transition-colors">
             <div className="flex items-center gap-2 text-brass-light font-mono text-xs font-bold uppercase">
               <Truck className="w-4 h-4" />
               <span>Regional 100–150 KM Logistics</span>
@@ -111,7 +130,7 @@ export const SpeedPartsSection: React.FC = () => {
             </p>
           </div>
 
-          <div className="p-4 bg-oxford-dark/80 border border-parchment/15 rounded-lg space-y-1.5">
+          <div className="p-4 bg-oxford-dark/80 border border-parchment/15 rounded-lg space-y-1.5 hover:border-brass/40 transition-colors">
             <div className="flex items-center gap-2 text-brass-light font-mono text-xs font-bold uppercase">
               <Package className="w-4 h-4" />
               <span>Direct Wholesale Margin Advantage</span>
@@ -120,14 +139,22 @@ export const SpeedPartsSection: React.FC = () => {
               Tier-1 wholesale trade tariff cards enabling regional workshops to maximize profit margins without sacrificing component integrity.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Warehouse Architectural Photograph Banner */}
-        <div className="relative overflow-hidden rounded-xl border border-parchment/20 shadow-bezel-dark group">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, ease: LUXURY_EASE }}
+          data-cursor="trade"
+          data-cursor-text="SPEED PARTS"
+          className="relative overflow-hidden rounded-xl border border-parchment/20 shadow-bezel-dark group cursor-pointer"
+        >
           <img
             src="/images/speed-parts-warehouse.jpg"
             alt="Speed Parts Wholesale Logistics Warehouse at Medical Chauraha"
-            className="w-full h-64 sm:h-80 md:h-96 object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-editorial"
+            className="w-full h-64 sm:h-80 md:h-96 object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-editorial"
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-oxford-dark via-oxford-dark/30 to-transparent" />
@@ -138,7 +165,11 @@ export const SpeedPartsSection: React.FC = () => {
                 LIVE INVENTORY TELEMETRY • MEDICAL CHAURAHA CENTRAL LOGISTICS
               </div>
               <div className="font-serif text-xl sm:text-2xl font-normal text-parchment">
-                Over 14,000 Certified OEM SKUs in Immediate Dispatch Inventory
+                <RollingCounter
+                  value={14000}
+                  prefix="Over "
+                  suffix=" Certified OEM SKUs in Immediate Dispatch Inventory"
+                />
               </div>
               <div className="text-xs font-mono text-parchment/70">
                 Direct Mobis, Bosch, Brembo, Bilstein, and Valeo Tier-1 Sourcing
@@ -148,7 +179,7 @@ export const SpeedPartsSection: React.FC = () => {
               Dispatch Protocol: <span className="text-brass-light font-bold">4-Hour Regional SLA</span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Interactive Trade Catalog Engine */}
         <div className="bezel-navy p-4 sm:p-8 space-y-6">
@@ -169,7 +200,7 @@ export const SpeedPartsSection: React.FC = () => {
                 placeholder="Your Garage Name (e.g. Apex Motors)"
                 value={clientGarageName}
                 onChange={(e) => setClientGarageName(e.target.value)}
-                className="w-full sm:w-64 px-3 py-2 min-h-[44px] text-xs font-mono bg-oxford-dark/90 text-parchment border border-parchment/20 rounded placeholder:text-parchment/40 focus:outline-none focus:border-brass"
+                className="w-full sm:w-64 px-3 py-2 min-h-[44px] text-xs font-mono bg-oxford-dark/90 text-parchment border border-parchment/20 rounded placeholder:text-parchment/40 focus:outline-none focus:border-brass transition-all"
               />
             </div>
           </div>
@@ -185,25 +216,36 @@ export const SpeedPartsSection: React.FC = () => {
                   placeholder="Search by part name, SKU, OEM number (e.g. 31922-2E900), or car model (Creta, Fortuner, BMW)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2.5 min-h-[44px] text-xs font-mono bg-oxford-dark/90 text-parchment border border-parchment/20 rounded placeholder:text-parchment/40 focus:outline-none focus:border-brass"
+                  className="w-full pl-9 pr-4 py-2.5 min-h-[44px] text-xs font-mono bg-oxford-dark/90 text-parchment border border-parchment/20 rounded placeholder:text-parchment/40 focus:outline-none focus:border-brass transition-all"
                 />
               </div>
 
-              {/* Brand Filter */}
+              {/* Brand Filter with Smooth Pill Transition */}
               <div className="sm:col-span-4 flex rounded border border-parchment/20 p-1 bg-oxford-dark/80 text-xs font-mono">
-                {(['All', 'Hyundai Priority', 'European & Multi-Brand'] as const).map((filterOpt) => (
-                  <button
-                    key={filterOpt}
-                    onClick={() => setSelectedBrandFilter(filterOpt)}
-                    className={`flex-1 py-1.5 min-h-[44px] sm:min-h-0 rounded transition-colors text-[11px] ${
-                      selectedBrandFilter === filterOpt
-                        ? 'bg-parchment text-oxford font-semibold'
-                        : 'text-parchment/70 hover:text-parchment'
-                    }`}
-                  >
-                    {filterOpt === 'Hyundai Priority' ? 'Hyundai OEM' : filterOpt}
-                  </button>
-                ))}
+                {(['All', 'Hyundai Priority', 'European & Multi-Brand'] as const).map((filterOpt) => {
+                  const isActive = selectedBrandFilter === filterOpt;
+                  return (
+                    <button
+                      key={filterOpt}
+                      onClick={() => setSelectedBrandFilter(filterOpt)}
+                      data-cursor="interactive"
+                      className={`relative flex-1 py-1.5 min-h-[44px] sm:min-h-0 rounded transition-colors text-[11px] focus:outline-none ${
+                        isActive ? 'text-oxford font-semibold' : 'text-parchment/70 hover:text-parchment'
+                      }`}
+                    >
+                      {isActive && (
+                        <motion.div
+                          layoutId="activeBrandFilterPill"
+                          className="absolute inset-0 bg-parchment rounded shadow-sm"
+                          transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                        />
+                      )}
+                      <span className="relative z-10">
+                        {filterOpt === 'Hyundai Priority' ? 'Hyundai OEM' : filterOpt}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -218,6 +260,7 @@ export const SpeedPartsSection: React.FC = () => {
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
+                    data-cursor="interactive"
                     className={`px-3 py-1.5 min-h-[44px] sm:min-h-[36px] text-xs font-mono rounded transition-all ${
                       isActive
                         ? 'bg-brass text-ink font-semibold'
@@ -238,118 +281,127 @@ export const SpeedPartsSection: React.FC = () => {
               <span>PRICES EXCLUSIVE OF STATUTORY GST</span>
             </div>
 
-            <div className="grid grid-cols-1 gap-3">
+            <motion.div layout className="grid grid-cols-1 gap-3">
               {filteredParts.length === 0 ? (
                 <div className="p-8 text-center bg-oxford-dark/60 rounded border border-parchment/15 font-mono text-sm text-parchment/60">
                   No matching components found for "{searchQuery}". Call the Speed Parts trade desk directly at +91 87965 76868.
                 </div>
               ) : (
-                filteredParts.map((part) => {
-                  const qty = activeQuantities[part.sku] || part.moq;
-                  const estimatedTotal = qty * part.wholesalePrice;
-                  const whatsappUrl = generateSpeedPartsWhatsAppUrl(part, qty, clientGarageName);
+                <AnimatePresence>
+                  {filteredParts.map((part) => {
+                    const qty = activeQuantities[part.sku] || part.moq;
+                    const estimatedTotal = qty * part.wholesalePrice;
+                    const whatsappUrl = generateSpeedPartsWhatsAppUrl(part, qty, clientGarageName);
 
-                  return (
-                    <div
-                      key={part.sku}
-                      className="p-4 sm:p-5 bg-oxford-dark/90 hover:bg-oxford-dark border border-parchment/15 hover:border-brass/50 rounded-lg transition-all space-y-3 group"
-                    >
-                      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-                        <div className="space-y-1 max-w-2xl">
-                          <div className="flex flex-wrap items-center gap-2">
-                            {part.isHyundaiPriority && (
-                              <span className="px-2 py-0.5 text-[10px] font-mono font-bold bg-brass text-ink rounded">
-                                HYUNDAI GENUINE / MOBIS
+                    return (
+                      <motion.div
+                        layout
+                        key={part.sku}
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.98 }}
+                        transition={{ duration: 0.35, ease: LUXURY_EASE }}
+                        className="p-4 sm:p-5 bg-oxford-dark/90 hover:bg-oxford-dark border border-parchment/15 hover:border-brass/50 rounded-lg transition-colors space-y-3 group"
+                      >
+                        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+                          <div className="space-y-1 max-w-2xl">
+                            <div className="flex flex-wrap items-center gap-2">
+                              {part.isHyundaiPriority && (
+                                <span className="px-2 py-0.5 text-[10px] font-mono font-bold bg-brass text-ink rounded">
+                                  HYUNDAI GENUINE / MOBIS
+                                </span>
+                              )}
+                              <span className="text-[10px] font-mono px-2 py-0.5 bg-parchment/10 text-parchment/80 rounded border border-parchment/15">
+                                {part.category}
                               </span>
-                            )}
-                            <span className="text-[10px] font-mono px-2 py-0.5 bg-parchment/10 text-parchment/80 rounded border border-parchment/15">
-                              {part.category}
-                            </span>
-                            <span className="text-[10px] font-mono text-brass-light font-semibold">
-                              SKU: {part.sku}
-                            </span>
-                            <span className="text-[10px] font-mono text-parchment/60">
-                              OEM NO: {part.oemNumber}
-                            </span>
+                              <span className="text-[10px] font-mono text-brass-light font-semibold">
+                                SKU: <TelemetryScramble text={part.sku} />
+                              </span>
+                              <span className="text-[10px] font-mono text-parchment/60">
+                                OEM NO: <TelemetryScramble text={part.oemNumber} />
+                              </span>
+                            </div>
+
+                            <h4 className="font-serif text-lg sm:text-xl text-parchment font-medium group-hover:text-brass-light transition-colors">
+                              {part.name}
+                            </h4>
+
+                            <div className="text-xs font-mono text-parchment/70 flex flex-wrap gap-x-3 gap-y-1 pt-1">
+                              <span>
+                                Manufacturer: <strong className="text-parchment">{part.brand}</strong>
+                              </span>
+                              <span>•</span>
+                              <span>
+                                Compatible:{' '}
+                                <span className="text-parchment/90">{part.vehicleCompatibility.join(', ')}</span>
+                              </span>
+                            </div>
                           </div>
 
-                          <h4 className="font-serif text-lg sm:text-xl text-parchment font-medium group-hover:text-brass-light transition-colors">
-                            {part.name}
-                          </h4>
-
-                          <div className="text-xs font-mono text-parchment/70 flex flex-wrap gap-x-3 gap-y-1 pt-1">
-                            <span>
-                              Manufacturer: <strong className="text-parchment">{part.brand}</strong>
-                            </span>
-                            <span>•</span>
-                            <span>
-                              Compatible:{' '}
-                              <span className="text-parchment/90">{part.vehicleCompatibility.join(', ')}</span>
-                            </span>
+                          {/* Wholesale Pricing Column */}
+                          <div className="sm:text-right font-mono space-y-1 shrink-0">
+                            <div className="text-xs text-parchment/50">
+                              Wholesale Rate (MOQ: {part.moq})
+                            </div>
+                            <div className="text-xl font-bold text-brass-light">
+                              ₹{part.wholesalePrice.toLocaleString('en-IN')}
+                              <span className="text-xs font-normal text-parchment/60 ml-1">/ unit</span>
+                            </div>
+                            <div className="text-[11px] text-parchment/50 line-through">
+                              MRP: ₹{part.mrp.toLocaleString('en-IN')}
+                            </div>
                           </div>
                         </div>
 
-                        {/* Wholesale Pricing Column */}
-                        <div className="sm:text-right font-mono space-y-1 shrink-0">
-                          <div className="text-xs text-parchment/50">
-                            Wholesale Rate (MOQ: {part.moq})
+                        {/* Bottom Action Strip with Interactive Quantity & Instant WhatsApp Link */}
+                        <div className="pt-3 border-t border-parchment/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                          <div className="flex items-center gap-3">
+                            <span className="text-parchment/60 text-[11px]">Lot Quantity:</span>
+                            <div className="flex items-center border border-parchment/20 rounded bg-oxford">
+                              <button
+                                onClick={() => handleQuantityChange(part.sku, -1, part.moq)}
+                                className="w-10 h-10 sm:w-8 sm:h-8 min-w-[40px] sm:min-w-[32px] flex items-center justify-center text-parchment hover:bg-oxford-light text-sm font-bold active:scale-95 transition-transform"
+                                aria-label="Decrease quantity"
+                              >
+                                -
+                              </button>
+                              <span className="px-3 py-1 font-bold text-parchment text-xs text-center min-w-[32px]">{qty}</span>
+                              <button
+                                onClick={() => handleQuantityChange(part.sku, 1, part.moq)}
+                                className="w-10 h-10 sm:w-8 sm:h-8 min-w-[40px] sm:min-w-[32px] flex items-center justify-center text-parchment hover:bg-oxford-light text-sm font-bold active:scale-95 transition-transform"
+                                aria-label="Increase quantity"
+                              >
+                                +
+                              </button>
+                            </div>
+                            <span className="text-parchment/80 text-[11px]">
+                              Lot Estimate: <strong className="text-brass-light">₹{estimatedTotal.toLocaleString('en-IN')}</strong>
+                            </span>
                           </div>
-                          <div className="text-xl font-bold text-brass-light">
-                            ₹{part.wholesalePrice.toLocaleString('en-IN')}
-                            <span className="text-xs font-normal text-parchment/60 ml-1">/ unit</span>
-                          </div>
-                          <div className="text-[11px] text-parchment/50 line-through">
-                            MRP: ₹{part.mrp.toLocaleString('en-IN')}
-                          </div>
-                        </div>
-                      </div>
 
-                      {/* Bottom Action Strip with Interactive Quantity & Instant WhatsApp Link */}
-                      <div className="pt-3 border-t border-parchment/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-                        <div className="flex items-center gap-3">
-                          <span className="text-parchment/60 text-[11px]">Lot Quantity:</span>
-                          <div className="flex items-center border border-parchment/20 rounded bg-oxford">
-                            <button
-                              onClick={() => handleQuantityChange(part.sku, -1, part.moq)}
-                              className="w-10 h-10 sm:w-8 sm:h-8 min-w-[40px] sm:min-w-[32px] flex items-center justify-center text-parchment hover:bg-oxford-light text-sm font-bold"
-                              aria-label="Decrease quantity"
+                          <div className="flex items-center gap-2">
+                            <span className="text-[11px] text-parchment/60 hidden md:inline">
+                              {part.stockStatus}
+                            </span>
+                            <a
+                              href={whatsappUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              data-cursor="trade"
+                              data-cursor-text="WHATSAPP RFQ"
+                              className="inline-flex items-center justify-center min-h-[44px] gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-parchment rounded font-semibold text-xs transition-all shadow-sm active:scale-[0.98]"
                             >
-                              -
-                            </button>
-                            <span className="px-3 py-1 font-bold text-parchment text-xs text-center min-w-[32px]">{qty}</span>
-                            <button
-                              onClick={() => handleQuantityChange(part.sku, 1, part.moq)}
-                              className="w-10 h-10 sm:w-8 sm:h-8 min-w-[40px] sm:min-w-[32px] flex items-center justify-center text-parchment hover:bg-oxford-light text-sm font-bold"
-                              aria-label="Increase quantity"
-                            >
-                              +
-                            </button>
+                              <span>WhatsApp Trade Inquiry</span>
+                              <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                            </a>
                           </div>
-                          <span className="text-parchment/80 text-[11px]">
-                            Lot Estimate: <strong className="text-brass-light">₹{estimatedTotal.toLocaleString('en-IN')}</strong>
-                          </span>
                         </div>
-
-                        <div className="flex items-center gap-2">
-                          <span className="text-[11px] text-parchment/60 hidden md:inline">
-                            {part.stockStatus}
-                          </span>
-                          <a
-                            href={whatsappUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center min-h-[44px] gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-parchment rounded font-semibold text-xs transition-colors shadow-sm"
-                          >
-                            <span>WhatsApp Trade Inquiry</span>
-                            <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })
+                      </motion.div>
+                    );
+                  })}
+                </AnimatePresence>
               )}
-            </div>
+            </motion.div>
           </div>
 
           {/* Regional Garages Bulk Dispatch Note */}
@@ -367,7 +419,9 @@ export const SpeedPartsSection: React.FC = () => {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 min-h-[44px] inline-flex items-center justify-center bg-brass text-ink font-bold uppercase rounded tracking-wider hover:bg-brass-light transition-colors whitespace-nowrap"
+              data-cursor="trade"
+              data-cursor-text="TRADE ACCOUNT"
+              className="px-4 py-2.5 min-h-[44px] inline-flex items-center justify-center bg-brass text-ink font-bold uppercase rounded tracking-wider hover:bg-brass-light transition-all whitespace-nowrap active:scale-[0.98]"
             >
               Open Trade Account
             </a>

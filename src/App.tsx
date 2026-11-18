@@ -8,10 +8,18 @@ import { SpeedPartsSection } from './components/SpeedPartsSection';
 import { Chronicle } from './components/Chronicle';
 import { TechnicalJournal } from './components/TechnicalJournal';
 import { FAQAndDirectory } from './components/FAQAndDirectory';
+import { CustomCursor } from './components/CustomCursor';
+import { ScrollTelemetry } from './components/ScrollTelemetry';
 
 export const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-parchment text-ink flex flex-col font-sans selection:bg-crimson selection:text-parchment overflow-x-clip">
+      {/* Precision Horological Optical Cursor (Fine Pointer Desktop Only) */}
+      <CustomCursor />
+
+      {/* Top Archival Scroll Hairline & Active Chapter Waypoint */}
+      <ScrollTelemetry />
+
       {/* CHAPTER 1 & MASTHEAD: Archival Masthead Navigation */}
       <Header />
 

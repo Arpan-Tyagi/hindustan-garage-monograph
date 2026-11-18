@@ -1,12 +1,21 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { chronicleEvents } from '../data/chronicleData';
+import { LUXURY_EASE, fadeInUpVariant } from '../utils/motion';
+import { MaskedHeading } from './text';
 
 export const Chronicle: React.FC = () => {
   return (
-    <section id="chronicle" className="py-12 sm:py-20 border-b border-rule bg-parchment">
+    <section id="chronicle" className="py-12 sm:py-20 border-b border-rule bg-parchment relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Section Header */}
-        <div className="space-y-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          variants={fadeInUpVariant}
+          className="space-y-4"
+        >
           <div className="flex items-center gap-2 text-xs font-mono text-crimson font-bold">
             <span>CHAPTER VI</span>
             <span>—</span>
@@ -14,31 +23,47 @@ export const Chronicle: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-baseline">
-            <h2 className="lg:col-span-8 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-ink leading-tight">
+            <MaskedHeading
+              as="h2"
+              className="lg:col-span-8 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-ink leading-tight"
+              italicWords={['Heritage']}
+            >
               Sixty-Six Years of Automotive Heritage in George Town.
-            </h2>
+            </MaskedHeading>
             <p className="lg:col-span-4 text-sm font-sans text-ink-muted leading-relaxed">
               Established in 1960 in the heart of Prayagraj, Hindustan Garage has witnessed the evolution of the Indian
               automobile from side-valve Ambassadors to modern DoIP-networked luxury super-saloons.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Archival Museum Exhibition Timeline */}
         <div className="space-y-8 relative">
-          {chronicleEvents.map((event) => (
-            <div
+          {chronicleEvents.map((event, idx) => (
+            <motion.div
               key={event.year}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.75, delay: idx * 0.08, ease: LUXURY_EASE }}
               className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start relative group"
             >
               {/* Year Stamp Column */}
-              <div className="lg:col-span-2 flex lg:flex-col items-center lg:items-end justify-between lg:justify-start pr-0 lg:pr-6 lg:border-r lg:border-rule lg:min-h-[140px]">
-                <div className="font-serif text-3xl lg:text-4xl font-bold text-crimson group-hover:scale-105 transition-transform">
+              <div className="lg:col-span-2 flex lg:flex-col items-center lg:items-end justify-between lg:justify-start pr-0 lg:pr-6 lg:border-r lg:border-rule lg:min-h-[140px] relative">
+                <motion.div
+                  initial={{ scale: 0.88, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.6, ease: LUXURY_EASE }}
+                  className="font-serif text-3xl lg:text-4xl font-bold text-crimson group-hover:scale-105 transition-transform"
+                >
                   {event.year}
-                </div>
+                </motion.div>
                 <div className="text-[10px] font-mono tracking-widest uppercase text-ink-faint text-right mt-1">
                   {event.era}
                 </div>
+                {/* Visual Epoch Marker Dot */}
+                <div className="hidden lg:block absolute -right-[5.5px] top-3.5 w-2.5 h-2.5 rounded-full bg-parchment border-2 border-crimson shadow-sm group-hover:scale-125 transition-transform" />
               </div>
 
               {/* Event Exhibition Card */}
@@ -55,11 +80,15 @@ export const Chronicle: React.FC = () => {
 
                   {/* Archival Historical Photograph */}
                   {event.imageUrl && (
-                    <div className="relative overflow-hidden rounded border border-rule group/chronicleimg">
+                    <div
+                      data-cursor="inspect"
+                      data-cursor-text={event.year}
+                      className="relative overflow-hidden rounded border border-rule group/chronicleimg cursor-pointer"
+                    >
                       <img
                         src={event.imageUrl}
                         alt={event.headline}
-                        className="w-full h-48 sm:h-64 object-cover object-center group-hover/chronicleimg:scale-[1.01] transition-transform duration-500 ease-editorial"
+                        className="w-full h-48 sm:h-64 object-cover object-center group-hover/chronicleimg:scale-[1.03] transition-transform duration-700 ease-editorial"
                         loading="lazy"
                       />
                       {event.imageCaption && (
@@ -91,7 +120,7 @@ export const Chronicle: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

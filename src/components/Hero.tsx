@@ -1,17 +1,32 @@
 import React from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Compass, Award, Star, ChevronRight } from 'lucide-react';
+import { LUXURY_EASE, fadeInUpVariant } from '../utils/motion';
+import { MaskedHeading, RollingCounter, TelemetryScramble } from './text';
 
 export const Hero: React.FC = () => {
+  const { scrollY } = useScroll();
+  const yWatermark = useTransform(scrollY, [0, 800], [0, 80]);
+
   return (
-    <section className="relative overflow-hidden pt-6 pb-12 sm:pt-8 sm:pb-20 border-b border-rule">
-      {/* Background Subtle Watermark Overlay */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none opacity-[0.025] text-ink font-serif text-[18vw] leading-none whitespace-nowrap font-bold">
+    <section id="hero" className="relative overflow-hidden pt-6 pb-12 sm:pt-8 sm:pb-20 border-b border-rule">
+      {/* Background Subtle Watermark Overlay with Parallax Motion */}
+      <motion.div
+        style={{ y: yWatermark }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none opacity-[0.025] text-ink font-serif text-[18vw] leading-none whitespace-nowrap font-bold"
+      >
         EST. 1960
-      </div>
+      </motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Archival Chapter Head & Coordinates */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 pb-4 sm:pb-6 border-b border-rule text-xs font-mono text-ink-muted">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUpVariant}
+          custom={0.05}
+          className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 pb-4 sm:pb-6 border-b border-rule text-xs font-mono text-ink-muted"
+        >
           <div className="flex items-center gap-2">
             <span className="text-crimson font-bold">CHAPTER I</span>
             <span>—</span>
@@ -20,35 +35,59 @@ export const Hero: React.FC = () => {
           <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-[10px] sm:text-[11px] tracking-wider text-ink-faint">
             <span className="inline-flex items-center gap-1">
               <Compass className="w-3.5 h-3.5 text-brass shrink-0" />
-              25.4520° N, 81.8540° E
+              <TelemetryScramble text="25.4520° N, 81.8540° E" />
             </span>
             <span className="hidden sm:inline">•</span>
             <span>56, M.G. MARG, GEORGE TOWN, PRAYAGRAJ</span>
           </div>
-        </div>
+        </motion.div>
 
         {/* Main Monograph Hero Title & Subtext */}
         <div className="pt-6 sm:pt-10 pb-8 sm:pb-12 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end">
           <div className="lg:col-span-8 space-y-4 sm:space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-brass/10 border border-brass/30 rounded-full text-brass-dark text-[11px] sm:text-xs font-mono tracking-wider max-w-full">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeInUpVariant}
+              custom={0.1}
+              className="inline-flex items-center gap-2 px-3 py-1 bg-brass/10 border border-brass/30 rounded-full text-brass-dark text-[11px] sm:text-xs font-mono tracking-wider max-w-full"
+            >
               <Award className="w-3.5 h-3.5 text-brass shrink-0" />
               <span className="break-words">SIXTY-SIX YEARS OF UNBROKEN CUSTODIANSHIP (1960–2026)</span>
-            </div>
+            </motion.div>
 
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.08] text-ink tracking-tight">
-              Sixty-Six Years of <span className="italic font-normal text-crimson">Uncompromising</span> Automotive Stewardship—All Under One Roof.
-            </h1>
+            {/* Masked Editorial Headline Curtain Reveal */}
+            <MaskedHeading
+              as="h1"
+              className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.08] text-ink tracking-tight"
+              italicWords={['Uncompromising']}
+              delay={0.15}
+            >
+              Sixty-Six Years of Uncompromising Automotive Stewardship—All Under One Roof.
+            </MaskedHeading>
 
-            <p className="font-sans text-sm sm:text-base lg:text-lg text-ink-muted max-w-2xl leading-relaxed">
+            <motion.p
+              initial="hidden"
+              animate="visible"
+              variants={fadeInUpVariant}
+              custom={0.25}
+              className="font-sans text-sm sm:text-base lg:text-lg text-ink-muted max-w-2xl leading-relaxed"
+            >
               From our historic George Town bays on M.G. Marg, Hindustan Garage delivers complete mechanical,
               diagnostic, and coachwork mastery. We eliminate the precarious 200 km highway transit to Lucknow for
               Prayagraj’s European luxury marque owners, while ensuring everyday family four-wheelers and institutional
               fleets receive factory-standard precision.
-            </p>
+            </motion.p>
           </div>
 
           {/* Right Column: Physical Seal & Telemetry Plaque */}
-          <div className="lg:col-span-4 flex flex-col justify-end items-start lg:items-end w-full">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUpVariant}
+            custom={0.3}
+            className="lg:col-span-4 flex flex-col justify-end items-start lg:items-end w-full"
+          >
             <div className="p-4 sm:p-5 bezel-container w-full max-w-sm space-y-3">
               <div className="flex items-center justify-between pb-3 border-b border-rule">
                 <div className="flex items-center gap-2">
@@ -63,13 +102,13 @@ export const Hero: React.FC = () => {
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-3 h-3 fill-brass" />
                       ))}
-                      <span className="text-xs font-mono font-bold text-ink ml-1">4.9 / 5.0</span>
+                      <RollingCounter value={4.9} decimals={1} suffix=" / 5.0" className="text-xs font-mono font-bold text-ink ml-1" />
                     </div>
                   </div>
                 </div>
                 <div className="text-right font-mono">
                   <div className="text-[10px] text-ink-faint">ANNUAL INTAKE</div>
-                  <div className="text-xs sm:text-sm font-bold text-crimson">1,850+ CARS</div>
+                  <RollingCounter value={1850} suffix="+ CARS" className="text-xs sm:text-sm font-bold text-crimson" />
                 </div>
               </div>
 
@@ -84,27 +123,36 @@ export const Hero: React.FC = () => {
                 </div>
                 <div className="flex justify-between gap-2">
                   <span className="text-ink-faint shrink-0">Statutory GSTIN:</span>
-                  <span className="font-semibold text-ink text-right">09ADQPA5477Q1ZN</span>
+                  <TelemetryScramble text="09ADQPA5477Q1ZN" className="font-semibold text-ink text-right font-mono" />
                 </div>
               </div>
 
               <div className="pt-2">
                 <a
                   href="#concierge-desk"
-                  className="w-full flex items-center justify-between px-4 py-2.5 min-h-[44px] text-xs font-mono font-semibold uppercase tracking-wider text-parchment bg-crimson hover:bg-crimson-dark rounded transition-all btn-dignified shadow-sm"
+                  data-cursor="reserve"
+                  className="w-full flex items-center justify-between px-4 py-2.5 min-h-[44px] text-xs font-mono font-semibold uppercase tracking-wider text-parchment bg-crimson hover:bg-crimson-dark rounded transition-all btn-dignified shadow-sm group active:scale-[0.98]"
                 >
                   <span>Request Bay Allocation</span>
-                  <ChevronRight className="w-4 h-4 shrink-0" />
+                  <span className="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center shrink-0 group-hover:translate-x-1 transition-transform">
+                    <ChevronRight className="w-4 h-4" />
+                  </span>
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Framed Split Showcase: Luxury European vs Everyday Four-Wheelers */}
         <div className="pt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Left Wing: European & Luxury Marque Chamber */}
-          <div className="p-5 sm:p-6 bezel-container space-y-4 hover:border-crimson/50 transition-colors">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.75, ease: LUXURY_EASE, delay: 0.15 }}
+            className="p-5 sm:p-6 bezel-container space-y-4 hover:border-crimson/50 transition-colors"
+          >
             <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-rule">
               <span className="text-xs font-mono font-semibold uppercase tracking-ledger sm:tracking-archival text-crimson flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-crimson shrink-0" />
@@ -114,11 +162,15 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Editorial Photograph */}
-            <div className="relative overflow-hidden rounded-md border border-rule group/img">
+            <div
+              data-cursor="inspect"
+              data-cursor-text="BAY 01"
+              className="relative overflow-hidden rounded-md border border-rule group/img cursor-pointer"
+            >
               <img
                 src="/images/hero-european-bay.jpg"
                 alt="Mercedes-Benz E-Class in Bay 01 Diagnostic Suite"
-                className="w-full h-48 sm:h-56 object-cover object-center group-hover/img:scale-[1.02] transition-transform duration-500 ease-editorial"
+                className="w-full h-48 sm:h-56 object-cover object-center group-hover/img:scale-[1.03] transition-transform duration-700 ease-editorial"
                 loading="eager"
               />
               <div className="absolute bottom-2 left-2 right-2 px-2.5 py-1 bg-ink/80 backdrop-blur-sm rounded text-[10px] font-mono text-parchment-light flex justify-between items-center">
@@ -146,10 +198,16 @@ export const Hero: React.FC = () => {
                 Save 200 km Lucknow Transit
               </span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Wing: Everyday Family & Institutional Fleet Chamber */}
-          <div className="p-5 sm:p-6 bezel-container space-y-4 hover:border-oxford/50 transition-colors">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.75, ease: LUXURY_EASE, delay: 0.25 }}
+            className="p-5 sm:p-6 bezel-container space-y-4 hover:border-oxford/50 transition-colors"
+          >
             <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-rule">
               <span className="text-xs font-mono font-semibold uppercase tracking-ledger sm:tracking-archival text-oxford flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-oxford shrink-0" />
@@ -159,11 +217,15 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Editorial Photograph */}
-            <div className="relative overflow-hidden rounded-md border border-rule group/img">
+            <div
+              data-cursor="inspect"
+              data-cursor-text="BAY 02"
+              className="relative overflow-hidden rounded-md border border-rule group/img cursor-pointer"
+            >
               <img
                 src="/images/hero-everyday-bay.jpg"
                 alt="Hyundai Creta CRDi on two-post hydraulic lift in Bay 02"
-                className="w-full h-48 sm:h-56 object-cover object-center group-hover/img:scale-[1.02] transition-transform duration-500 ease-editorial"
+                className="w-full h-48 sm:h-56 object-cover object-center group-hover/img:scale-[1.03] transition-transform duration-700 ease-editorial"
                 loading="eager"
               />
               <div className="absolute bottom-2 left-2 right-2 px-2.5 py-1 bg-ink/80 backdrop-blur-sm rounded text-[10px] font-mono text-parchment-light flex justify-between items-center">
@@ -191,7 +253,7 @@ export const Hero: React.FC = () => {
                 High Court Fleet SLA
               </span>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

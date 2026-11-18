@@ -48,7 +48,9 @@ export const chronicleEvents: ChronicleEvent[] = [
     narration:
       'Recognizing severe supply-chain delays for genuine replacement parts across Eastern UP, Hindustan Garage establishes SPEED PARTS—an expansive wholesale logistics division at Medical Chauraha. Designed to supply regional garages within a 150 km radius (Pratapgarh, Kaushambi, Fatehpur, Mirzapur, Rewa), Speed Parts becomes the regional benchmark for Hyundai Genuine Mobis and certified European OEM components.',
     technicalMilestone: 'Barcoded real-time inventory ledger housing over 14,000 active OEM SKUs with guaranteed 4-hour regional dispatch.',
-    archivalArtifact: 'SPEED PARTS Founding Manifest & Wholesale Dealer Network Rollout (2015).'
+    archivalArtifact: 'SPEED PARTS Founding Manifest & Wholesale Dealer Network Rollout (2015).',
+    imageUrl: '/images/speed-parts-warehouse.jpg',
+    imageCaption: 'Central wholesale distribution warehouse at Medical Chauraha, housing 14,000+ OEM SKUs (2015)'
   },
   {
     year: '2026',
@@ -57,6 +59,8 @@ export const chronicleEvents: ChronicleEvent[] = [
     narration:
       'Today, marking 66 continuous years of automotive stewardship, Hindustan Garage operates as an architectural fortress of engineering integrity. Equipped with Mercedes-Benz Xentry DoIP, BMW ISTA optical diagnostics, Hunter HawkEye 3D laser alignment, and full cashless restoration bays, Hindustan Garage spares Prayagraj luxury owners the 200 km flatbed transit to Lucknow—delivering uncompromising mechanical excellence under one historic roof.',
     technicalMilestone: 'Live bay telemetry, DoIP high-speed optical ECU flashing, and instant WhatsApp trade desk integration.',
-    archivalArtifact: 'The 2026 Digital Monograph & Live Bay Telemetry Console.'
+    archivalArtifact: 'The 2026 Digital Monograph & Live Bay Telemetry Console.',
+    imageUrl: '/images/facade-georgetown.jpg',
+    imageCaption: 'The historic coachwork facade at 56, M.G. Marg, George Town, marking 66 unbroken years (1960–2026)'
   }
 ];

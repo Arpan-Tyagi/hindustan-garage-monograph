@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { faqData } from '../data/faqData';
 import { WORKSHOP_PHONE } from '../utils/whatsapp';
 import {
@@ -7,6 +8,8 @@ import {
   MapPin,
   ExternalLink,
 } from 'lucide-react';
+import { LUXURY_EASE, fadeInUpVariant } from '../utils/motion';
+import { MaskedHeading, TelemetryScramble } from './text';
 
 export const FAQAndDirectory: React.FC = () => {
   const [openFaqId, setOpenFaqId] = useState<string | null>('faq-01');
@@ -16,10 +19,16 @@ export const FAQAndDirectory: React.FC = () => {
   };
 
   return (
-    <div id="faq" className="border-t border-rule bg-parchment">
+    <div id="faq" className="border-t border-rule bg-parchment relative">
       {/* CHAPTER VIII: Frequently Asked Questions */}
       <section className="py-12 sm:py-20 border-b border-rule max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="space-y-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          variants={fadeInUpVariant}
+          className="space-y-4"
+        >
           <div className="flex items-center gap-2 text-xs font-mono text-crimson font-bold">
             <span>CHAPTER VIII</span>
             <span>—</span>
@@ -27,15 +36,18 @@ export const FAQAndDirectory: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-baseline">
-            <h2 className="lg:col-span-8 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-ink leading-tight">
+            <MaskedHeading
+              as="h2"
+              className="lg:col-span-8 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-ink leading-tight"
+            >
               Archival Guidance on In-House Procedures & Policies.
-            </h2>
+            </MaskedHeading>
             <p className="lg:col-span-4 text-sm font-sans text-ink-muted leading-relaxed">
               Transparent answers regarding diagnostic protocols, cashless insurance processing, Speed Parts wholesale logistics,
               and our 66-year quality covenant.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* FAQ Accordion List */}
         <div className="max-w-4xl mx-auto space-y-3">
@@ -45,10 +57,11 @@ export const FAQAndDirectory: React.FC = () => {
             return (
               <div
                 key={item.id}
-                className="bezel-container transition-all overflow-hidden bg-parchment-light"
+                className="bezel-container transition-all overflow-hidden bg-parchment-light hover:border-crimson/40"
               >
                 <button
                   onClick={() => toggleFaq(item.id)}
+                  data-cursor="interactive"
                   className="w-full text-left p-5 sm:p-6 flex items-start justify-between gap-4 focus:outline-none"
                 >
                   <div className="space-y-1">
@@ -61,15 +74,25 @@ export const FAQAndDirectory: React.FC = () => {
                   </div>
 
                   <div className="p-1 rounded-full bg-parchment border border-rule text-ink-muted flex-shrink-0 mt-1">
-                    {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    {isOpen ? <ChevronUp className="w-4 h-4 text-crimson" /> : <ChevronDown className="w-4 h-4" />}
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 text-sm font-sans text-ink-muted leading-relaxed border-t border-rule/50 space-y-3">
-                    <p>{item.answer}</p>
-                  </div>
-                )}
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3, ease: LUXURY_EASE }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 sm:px-6 pb-6 pt-1 text-sm font-sans text-ink-muted leading-relaxed border-t border-rule/50 space-y-3">
+                        <p>{item.answer}</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}
@@ -98,18 +121,52 @@ export const FAQAndDirectory: React.FC = () => {
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono">
               <a
                 href="#concierge-desk"
-                className="px-4 py-2.5 min-h-[44px] inline-flex items-center justify-center bg-crimson hover:bg-crimson-dark text-parchment rounded uppercase font-semibold tracking-wider transition-colors shadow-sm"
+                data-cursor="reserve"
+                className="px-4 py-2.5 min-h-[44px] inline-flex items-center justify-center bg-crimson hover:bg-crimson-dark text-parchment rounded uppercase font-semibold tracking-wider transition-all shadow-sm active:scale-[0.98]"
               >
                 Reserve a Bay
               </a>
               <a
                 href="#speed-parts"
-                className="px-4 py-2.5 min-h-[44px] inline-flex items-center justify-center bg-oxford hover:bg-oxford-light text-parchment rounded uppercase font-semibold tracking-wider transition-colors border border-parchment/20 shadow-sm"
+                data-cursor="trade"
+                className="px-4 py-2.5 min-h-[44px] inline-flex items-center justify-center bg-oxford hover:bg-oxford-light text-parchment rounded uppercase font-semibold tracking-wider transition-all border border-parchment/20 shadow-sm active:scale-[0.98]"
               >
                 Speed Parts Trade Desk
               </a>
             </div>
           </div>
+
+          {/* Architectural Landmark Showcase: 56, M.G. Marg, George Town */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.8, ease: LUXURY_EASE }}
+            data-cursor="inspect"
+            data-cursor-text="56, M.G. MARG"
+            className="relative overflow-hidden rounded-lg border border-rule-dark group cursor-pointer"
+          >
+            <img
+              src="/images/facade-georgetown.jpg"
+              alt="Hindustan Garage Historic Facade at 56, M.G. Marg, George Town, Prayagraj"
+              className="w-full h-56 sm:h-72 object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-editorial"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+            <div className="absolute bottom-3 left-3 right-3 sm:bottom-5 sm:left-5 sm:right-5 flex flex-col sm:flex-row sm:items-end justify-between gap-2 text-parchment">
+              <div>
+                <div className="text-[10px] font-mono tracking-widest uppercase text-brass">
+                  PERMANENT HEADQUARTERS & COACHWORK ARCHIVE
+                </div>
+                <div className="font-serif text-lg sm:text-xl font-normal">
+                  56, M.G. Marg, George Town, Prayagraj — Est. 1960
+                </div>
+              </div>
+              <div className="text-[11px] font-mono text-parchment/70 bg-ink/70 px-2.5 py-1 rounded border border-rule-dark backdrop-blur-sm self-start sm:self-auto">
+                <TelemetryScramble text="Municipal Landmark Registration No. 42/1960" />
+              </div>
+            </div>
+          </motion.div>
 
           {/* Directory Dual-Facility Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-xs font-mono text-parchment-dark/80">
@@ -125,7 +182,7 @@ export const FAQAndDirectory: React.FC = () => {
                 <div>56, M.G. Marg, George Town</div>
                 <div>Prayagraj, Uttar Pradesh 211002</div>
                 <div className="text-parchment-dark/60 text-[11px]">
-                  Coordinates: 25.4520° N, 81.8540° E
+                  Coordinates: <TelemetryScramble text="25.4520° N, 81.8540° E" />
                 </div>
               </div>
               <div className="pt-2">
@@ -133,6 +190,7 @@ export const FAQAndDirectory: React.FC = () => {
                   href="https://maps.google.com/?q=56+MG+Marg+George+Town+Prayagraj"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-cursor="interactive"
                   className="inline-flex items-center gap-1.5 text-brass hover:text-brass-light transition-colors py-2 min-h-[44px]"
                 >
                   <MapPin className="w-3.5 h-3.5 shrink-0" />
@@ -162,6 +220,7 @@ export const FAQAndDirectory: React.FC = () => {
                   href={`https://wa.me/${WORKSHOP_PHONE}?text=${encodeURIComponent('Hello Speed Parts, I am visiting the Medical Chauraha trade counter.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-cursor="interactive"
                   className="inline-flex items-center gap-1.5 text-brass hover:text-brass-light transition-colors py-2 min-h-[44px]"
                 >
                   <ExternalLink className="w-3.5 h-3.5 shrink-0" />
@@ -198,32 +257,32 @@ export const FAQAndDirectory: React.FC = () => {
               </div>
               <div className="space-y-1.5">
                 <div>
-                  <span className="text-parchment-dark/50 block">GSTIN Registration:</span>
-                  <span className="text-parchment font-mono font-bold break-all">09ADQPA5477Q1ZN</span>
+                  <span className="text-parchment-dark/50 block">Official GSTIN:</span>
+                  <span className="text-parchment font-mono font-semibold">
+                    <TelemetryScramble text="09ADQPA5477Q1ZN" />
+                  </span>
                 </div>
                 <div>
-                  <span className="text-parchment-dark/50 block">Enterprise Classification:</span>
-                  <span className="text-parchment">Automotive Engineering & Wholesale MSME</span>
+                  <span className="text-parchment-dark/50 block">Primary Marque Coverage:</span>
+                  <span className="text-parchment">Mercedes, BMW, Audi, Hyundai, Maruti, Toyota</span>
                 </div>
                 <div>
-                  <span className="text-parchment-dark/50 block">Established:</span>
-                  <span className="text-parchment">1960 • 66 Years of Stewardship</span>
+                  <span className="text-parchment-dark/50 block">Wholesale Supply Hub:</span>
+                  <span className="text-parchment">Speed Parts (Est. 2015, Medical Chauraha)</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Bottom Colophon & Legal Notice */}
-          <div className="pt-8 border-t border-rule-dark flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-parchment-dark/50 text-center sm:text-left">
+          {/* Bottom Copyright Strip */}
+          <div className="pt-8 border-t border-rule-dark/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-parchment-dark/50">
             <div>
-              © 1960–2026 Hindustan Garage & Speed Parts Division. All rights reserved.
+              © 1960–2026 Hindustan Garage & Speed Parts. All rights reserved.
             </div>
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1">
+            <div className="flex items-center gap-4">
               <span>George Town, Prayagraj</span>
               <span>•</span>
-              <span>Non-3D Editorial Monograph</span>
-              <span>•</span>
-              <span className="text-brass">"Everything is Important"</span>
+              <span>Archival Edition 2026.1</span>
             </div>
           </div>
         </div>
